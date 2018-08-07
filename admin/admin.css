@@ -1,0 +1,20 @@
+/*/ Admin Custom CSS /*/
+
+#slider_caption {width: 90%; height: 200px;}
+#slider_link {max-width: 80%; width: 600px;}
+ul.dd_home_widget li:first-child {
+    float: left;
+    width: 60%;
+}
+ul.dd_home_widget li:last-child {
+    width:30%;
+    float:left;
+    padding-left:5%;
+}
+ul.dd_home_widget {
+    display: inline-block;
+    width: 100%;
+}
+ul.dd_home_widget a.button {
+    margin-top: 1em;
+}
