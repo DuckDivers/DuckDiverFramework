@@ -48,7 +48,7 @@ class dd_slider_meta {
 
 		add_meta_box(
 			'slider',
-			__( 'Slider Options', 'text_domain' ),
+			__( 'Slider Options', 'dd_theme' ),
 			array( $this, 'render_metabox' ),
 			'slider',
 			'normal',
@@ -70,17 +70,17 @@ class dd_slider_meta {
 		echo '<table class="form-table">';
 
 		echo '	<tr>';
-		echo '		<th><label for="slider_caption" class="slider_caption_label">' . __( 'Caption', 'text_domain' ) . '</label>';
-				echo '			<p class="description">' . __( 'Input your caption for slide (HTML tags are allowed).', 'text_domain' ) . '</p></th>';
+		echo '		<th><label for="slider_caption" class="slider_caption_label">' . __( 'Caption', 'dd_theme' ) . '</label>';
+				echo '			<p class="description">' . __( 'Input your caption for slide (HTML tags are allowed).', 'dd_theme' ) . '</p></th>';
 		echo '		<td>';
 		wp_editor( $slider_caption, 'slider_caption', array( 'media_buttons' => true ) );
 		echo '		</td>';
 		echo '	</tr>';
 
 		echo '	<tr>';
-		echo '		<th><label for="slider_link" class="slider_link_label">' . __( 'URL', 'text_domain' ) . '</label><p class="description">' . __( 'Input the slide URL (can be external link)', 'text_domain' ) . '</p></th>';
+		echo '		<th><label for="slider_link" class="slider_link_label">' . __( 'URL', 'dd_theme' ) . '</label><p class="description">' . __( 'Input the slide URL (can be external link)', 'dd_theme' ) . '</p></th>';
 		echo '		<td>';
-		echo '			<input type="text" id="slider_link" name="slider_link" class="slider_link_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr( $slider_link ) . '">';
+		echo '			<input type="text" id="slider_link" name="slider_link" class="slider_link_field" placeholder="' . esc_attr__( '', 'dd_theme' ) . '" value="' . esc_attr( $slider_link ) . '">';
 		echo '		</td>';
 		echo '	</tr>';
 
