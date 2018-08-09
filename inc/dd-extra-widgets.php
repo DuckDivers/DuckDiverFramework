@@ -2,7 +2,7 @@
 
 function duck_diver_extra_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widgets Left', 'duck_diver_theme' ),
+		'name'          => esc_html__( 'Footer Widgets Left', 'dd_theme' ),
 		'id'            => 'left-footer-widgets',
 		'description'   => 'In the footer on the left side',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
