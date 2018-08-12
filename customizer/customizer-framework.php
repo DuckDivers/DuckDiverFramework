@@ -14,9 +14,9 @@
  */
 define( 'WPSHED_CF_DIR', trailingslashit( get_template_directory( __FILE__ ) ) . 'customizer' );
 define( 'WPSHED_CF_URI', trailingslashit( get_template_directory_uri( __FILE__ ) ) . 'customizer' );
-define( 'WPSHED_CF_THEME_OPTIONS', trailingslashit( WPSHED_CF_DIR ) . 'theme-options.php' );
-define( 'WPSHED_CF_THEME_SAMPLE_OPTIONS', trailingslashit( WPSHED_CF_DIR ) . 'customizer.php' );
-
+define( 'WPSHED_CF_THEME_OPTIONS', trailingslashit( WPSHED_CF_DIR ) . 'customizer.php' );
+define( 'WPSHED_CF_THEME_SAMPLE_OPTIONS', trailingslashit( WPSHED_CF_DIR ) . 'customizer-examples.php' );
+if (is_child_theme()) define( 'DD_CHILD_THEME_OPTIONS', trailingslashit( get_stylesheet_directory( __FILE__) ) . 'inc/child-theme-options.php');
 
 /**
  * Locate settings file
@@ -30,7 +30,6 @@ function wpshed_cf_options_file() {
     return $customizer_options;
 }
 
-
 /**
  * Register Settings
  */
@@ -41,6 +40,7 @@ function wpshed_cf_register_settings() {
     $type = 'theme_mod';
 
     require_once wpshed_cf_options_file();
+    if (is_child_theme()) require_once DD_CHILD_THEME_OPTIONS;
 
     foreach ( $options as $option ) {
         if ( $option['type'] != 'panel' && $option['type'] != 'section' ) {
@@ -214,6 +214,7 @@ function wpshed_cf_customizer_register( $wp_customize ) {
 
     // Require customizer options file
     require_once wpshed_cf_options_file();
+    if (is_child_theme()) require_once DD_CHILD_THEME_OPTIONS;
 
     $i = 0;
     foreach ( $options as $option ) {
