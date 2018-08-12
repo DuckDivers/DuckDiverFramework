@@ -36,7 +36,7 @@
 						<?php bloginfo('name'); ?>
 						</span> &copy; <?php echo date('Y'); ?>
 						<?php } ?>
-						&bull; Website Created by <a href="https://www.duckdiverllc.com" target="_blank" class="duck"><i class="dd-duck-icon" style="vertical-align:middle"></i>Duck Diver Marketing</a> 
+						&bull; <?php _e('Website Created by', 'dd_theme');?> <a href="https://www.duckdiverllc.com" target="_blank" class="duck"><i class="dd-duck-icon" style="vertical-align:middle"></i>Duck Diver Marketing</a> 
 					</div>
                 </div>
   				</div>
