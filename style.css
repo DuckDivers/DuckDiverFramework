@@ -9001,6 +9001,9 @@ Semantic grid
 #content-home.site-content {
     margin:0;
 }
+#content > .row {
+    width: 100%;
+}
 #main-content, main#main {
     max-width: 100%;
     width: 100%;
