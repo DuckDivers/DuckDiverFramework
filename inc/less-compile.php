@@ -4,8 +4,13 @@
  * Current theme I/O files
  */
 
-$directory = get_template_directory(); 
-
+// Check to see if Child Theme is in use
+if (is_child_theme()) {
+    $directory = get_stylesheet_directory();
+}
+else {
+    $directory = get_template_directory(); 
+}
 	$inputFile  = $directory . '/custom.less';
 	$outputFile = $directory . '/custom.css';
 
