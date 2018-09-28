@@ -4,14 +4,13 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Duck Diver Custom
+ * @package Duck Diver Framework 1.1
  */
 
-get_header();
-?>
-
-        <div class="row" id="content-wrap">
-            <main id="single" class="single-main col-md-9" role="main">
+get_header(); ?>
+<div class="container" id="content-wrap">
+    <div class="row">
+        <main id="single" class="single-main col-md-9" role="main">
 
                 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -35,12 +34,10 @@ get_header();
 
                 <?php endwhile; // End of the loop. ?>
 
-            </main>
-            <!-- #main -->
-            <aside class="col-md-3">
-                <?php get_sidebar(); ?>
-            </aside>
-        </div>
-    </div> <!-- #primary -->
+        </main><!-- #main -->
+        <aside class="col-md-3" id="sidebar">
+            <?php get_sidebar();?>
+        </aside>
+    </div>   
 </div>
 <?php get_footer(); ?>

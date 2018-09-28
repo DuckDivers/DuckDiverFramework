@@ -4,13 +4,13 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Duck Diver Theme
+ * @package Duck Diver Framework 1.1
  */
 
 get_header(); ?>
- <div class="container">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="container" id="content-wrap">
+    <div class="row">
+        <main id="single" class="single-main col-md-9" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -36,9 +36,10 @@ get_header(); ?>
 
 		<?php endwhile; // End of the loop. ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+        </main><!-- #main -->
+        <aside class="col-md-3" id="sidebar">
+            <?php get_sidebar();?>
+        </aside>
+    </div>   
 </div>
 <?php get_footer(); ?>

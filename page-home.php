@@ -1,19 +1,21 @@
 <?php
 /**
 * Template Name: Home Page
+*
+* @package Duck Diver Framework 1.1
 */
 get_header();
 
 get_template_part( 'template-parts/content', 'slider' ); ?>
 
 
-	<div id="full-width-container" class="content-area">
-		<main id="main" class="site-main container" role="main">
-
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+	<div id="homepage-content" class="container-fluid">
+		<main id="main" class="site-main row" role="main">
+            <div class="col">
+                <?php while ( have_posts() ) : the_post(); ?>
+                
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    
                     <div class="entry-content">
                         <?php the_content(); ?>
                         <?php
@@ -23,9 +25,10 @@ get_template_part( 'template-parts/content', 'slider' ); ?>
                             ) );
                         ?>
                     </div><!-- .entry-content -->
-                
-                </article><!-- #post-## -->
-			<?php endwhile; // End of the loop. ?>
+                    
+                    </article><!-- #post-## -->
+                <?php endwhile; // End of the loop. ?>
+            </div>
 
 		</main><!-- #main -->
 	</div>
