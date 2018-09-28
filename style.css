@@ -9727,7 +9727,7 @@ a.skip-link {
   color: white; }
   .navbar-dark .navbar-brand a:focus, .navbar-dark .navbar-brand a:hover {
     color: white; }
-footer#colophon {
+footer#colophon,header#masthead {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
