@@ -1,6 +1,5 @@
 <?php 
 // Require Extra Files and Functions
-    include_once('duck-functions.php'); // Custom Theme Specific Functions
 	require_once('lessc.inc.php');
 	require_once('less-compile.php'); // Less Compiler
 	require_once('cpt-init.php'); 
@@ -13,7 +12,9 @@
 // Enqueue Custom Style from LessCompile
 function dd_enqueue_styles(){
         wp_enqueue_style('dd-custom-fonts', get_template_directory_uri() . '/css/duck.min.css');
-		wp_enqueue_style('dd-custom-style', get_template_directory_URI() . '/custom.css', array(), filemtime(get_template_directory() . '/custom.css'), false);
+		if (!is_child_theme()){
+            wp_enqueue_style('dd-custom-style', get_template_directory_URI() . '/custom.css', array(), filemtime(get_template_directory() . '/custom.css'), false);
+        }
 }
 add_action('wp_print_styles', 'dd_enqueue_styles', 99);
 // Add Admin Style

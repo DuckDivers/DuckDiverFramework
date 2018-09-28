@@ -209,3 +209,11 @@ add_filter('manage_header_image_posts_columns', 'DD_CPT_columns_head');
 add_action('manage_header_image_posts_custom_column', 'DD_CPT_columns_content', 10, 2);
 add_filter('manage_slider_posts_columns', 'DD_CPT_columns_head');
 add_action('manage_slider_posts_custom_column', 'DD_CPT_columns_content', 10, 2);
+
+// Add Category Column to FAQ
+
+add_filter( 'manage_taxonomies_for_faq_columns', 'faq_type_columns' );
+function faq_type_columns( $taxonomies ) {
+    $taxonomies[] = 'faq_category';
+    return $taxonomies;
+}

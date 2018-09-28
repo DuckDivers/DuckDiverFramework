@@ -48,7 +48,7 @@
             <header id="masthead" class="site-header col-12" role="banner">
 				<?php get_template_part( 'page-sections/header', 'section' ); ?>
 			</header><!-- #masthead -->
-         <?php if (is_front_page()){
+         <?php if (is_front_page() || is_page_template('page-fullwidth-fluid.php')){ 
             echo '<div id="content-home" class="site-content col-12">';
             }    
             else {
