@@ -4,13 +4,11 @@
 *
 * @package Duck Diver Framework 1.1
 */
-get_header();
-
-get_template_part( 'template-parts/content', 'slider' ); ?>
-
-
+get_header();?>
+<main id="main" class="home-main" role="main">
+<?php get_template_part( 'template-parts/content', 'slider' ); ?>
 	<div id="homepage-content" class="container-fluid">
-		<main id="main" class="site-main row" role="main">
+		<div id="main-content" class="row">
             <div class="col">
                 <?php while ( have_posts() ) : the_post(); ?>
                 
@@ -30,7 +28,7 @@ get_template_part( 'template-parts/content', 'slider' ); ?>
                 <?php endwhile; // End of the loop. ?>
             </div>
 
-		</main><!-- #main -->
+        </div>
 	</div>
 <?php if (get_theme_mod('slider_active')) {
 			$delay = get_theme_mod('slider_delay'); }
@@ -38,7 +36,7 @@ get_template_part( 'template-parts/content', 'slider' ); ?>
 			$delay = 'false';
 		}
 		?>
-
+</main>
 
 <script type="text/javascript">
 	// Carousel Init
