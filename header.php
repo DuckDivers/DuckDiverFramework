@@ -47,4 +47,5 @@
     <div class="row">
         <header id="masthead" class="site-header col" role="banner">
             <?php get_template_part( 'page-sections/header', 'section' ); ?>
-        </header><!-- #masthead -->    
+        </header><!-- #masthead -->  
+        <?php if (is_front_page()) get_template_part( 'template-parts/content', 'slider' ); ?>
