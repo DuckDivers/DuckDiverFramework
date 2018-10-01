@@ -7,7 +7,6 @@
 get_header();
 ?>
 <main id="main" class="home-main col" role="main">
-    <?php get_template_part( 'template-parts/content', 'slider' ); ?>
 
     <?php while ( have_posts() ) : the_post(); ?>
 
