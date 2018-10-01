@@ -56,6 +56,14 @@ $options[] = array( 'title'             => __( 'Slider Options', 'dd_theme' ),
                     'priority'          => 15,
                     'theme_supports'    => '',
                     'type'              => 'section' );
+$options[] = array( 'title'             => __( 'Slider Active', 'dd_theme' ),
+                    'description'       => __('Check box to activate slideshow'),
+                    'section'           => 'theme_slider_options',
+                    'id'                => 'dd_slider_active',
+                    'default'           => '1', // 1 for checked
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
 
 $options[] = array( 'title'             => __( 'Slider Delay', 'dd_theme' ),
                     'description'       => __( 'Enter the duration of each slide in miliseconds', 'dd_theme' ),
@@ -66,14 +74,6 @@ $options[] = array( 'title'             => __( 'Slider Delay', 'dd_theme' ),
                     'sanitize_callback' => '',
                     'type'              => 'control' );
 
-$options[] = array( 'title'             => __( 'Slider Active', 'dd_theme' ),
-                    'description'       => __('Check box to activate slideshow'),
-                    'section'           => 'theme_slider_options',
-                    'id'                => 'slider_active',
-                    'default'           => '1', // 1 for checked
-                    'option'            => 'checkbox',
-                    'sanitize_callback' => '',
-                    'type'              => 'control' );
 $options[] = array( 'title'             => __( 'Slider Navs', 'dd_theme' ),
                     'description'       => __('Check box to show slider navs - dots'),
                     'section'           => 'theme_slider_options',
@@ -81,7 +81,16 @@ $options[] = array( 'title'             => __( 'Slider Navs', 'dd_theme' ),
                     'default'           => '1', // 1 for checked
                     'option'            => 'checkbox',
                     'sanitize_callback' => '',
-                    'type'              => 'control' );				
+                    'type'              => 'control' );
+
+$options[] = array( 'title'             => __( 'Disable Slide Post Type', 'dd_theme' ),
+                    'description'       => __('Check box to entirely remove the SLIDES from the Admin. This does not delete any existing slide data.'),
+                    'section'           => 'theme_slider_options',
+                    'id'                => 'dd_slider_cpt_enable',
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
+
 /* ---------------------------------------------------------------------------------------------------
     THEME OPTIONS Controls
 --------------------------------------------------------------------------------------------------- */

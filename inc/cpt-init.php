@@ -26,7 +26,7 @@ function my_post_type_slider() {
 		)
 	);
 }
-add_action('init', 'my_post_type_slider');
+if (!get_theme_mod('dd_slider_cpt_enable')) add_action('init', 'my_post_type_slider');
 
 class dd_slider_meta {
 

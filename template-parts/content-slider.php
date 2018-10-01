@@ -21,6 +21,7 @@ if ( $slider_query->have_posts() ) {
 wp_reset_postdata();
 ?>
 <?php if(count($slides) > 0) { ?>
+<?php do_action('dd_before_slider');?>
 <div class="container-fluid">
     <div class="row">
         <div id="dd-carousel" class="carousel slide" data-ride="carousel">
@@ -47,4 +48,5 @@ wp_reset_postdata();
         </div>
     </div>
 </div>
+<?php do_action('dd_after_slider');?>
 <?php } ?>

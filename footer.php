@@ -10,7 +10,7 @@
  */
 
 ?>
-
+<?php do_action('dd_before_footer');?>
 <footer id="colophon" class="site-footer col-12" role="contentinfo">
     <div class="container">
         <div class="row footer-widgets">
@@ -40,6 +40,7 @@
         </div>
     </div>
 </footer> <!-- #colophon -->
+<?php do_action('dd_after_footer');?>
 </div> <!-- Outer Row -->
 </div> <!-- #page -->
 <div id="back-top-wrapper" class="visible-desktop">

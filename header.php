@@ -43,8 +43,12 @@
             </script>
     <?php endif;
 }; ?>
+<?php do_action('dd_before_header');?>
 <div id="page" class="site container-fluid">
     <div class="row">
         <header id="masthead" class="site-header col" role="banner">
             <?php get_template_part( 'page-sections/header', 'section' ); ?>
-        </header><!-- #masthead -->    
+        </header><!-- #masthead -->
+<?php do_action('dd_after_header');?>
+        <?php if (is_front_page() && get_theme_mod('dd_slider_active')) get_template_part( 'template-parts/content', 'slider' ); ?>
+<?php do_action('dd_before_main_content');?>
