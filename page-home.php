@@ -27,8 +27,8 @@ get_header();
     <!-- #post-## -->
     <?php endwhile; // End of the loop. ?>
 
-    <?php if (get_theme_mod('slider_active')) {
-			$delay = get_theme_mod('slider_delay'); }
+    <?php if (get_theme_mod('dd_slider_active')) {
+			$delay = get_theme_mod('dd_slider_delay'); }
 		else {
 			$delay = 'false';
 		}

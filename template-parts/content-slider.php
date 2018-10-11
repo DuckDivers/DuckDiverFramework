@@ -1,6 +1,6 @@
 <?php
 $slides = array();
-$args = array( 'post_type' => 'slider' );
+$args = array( 'post_type' => 'slider', 'orderby' => 'menu_order', 'order' => 'ASC', );
 $slider_query = new WP_Query( $args );
 if ( $slider_query->have_posts() ) {
     while ( $slider_query->have_posts() ) {
@@ -25,7 +25,7 @@ wp_reset_postdata();
 <div class="container-fluid">
     <div class="row">
         <div id="dd-carousel" class="carousel slide" data-ride="carousel">
-            <?php if (get_theme_mod('slider_navs')) :?>
+            <?php if (get_theme_mod('dd_slider_navs')) :?>
             <ol class="carousel-indicators">
                 <?php for($i=0;$i<count($slides);$i++) { ?>
                 <li data-target="#dd-carousel" data-slide-to="<?php echo $i ?>" <?php if($i==0) { ?>class="active"
