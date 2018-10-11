@@ -27,3 +27,24 @@ function dd_theme_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'dd_theme_body_classes' );
+
+function dd_get_sidebar_position(){
+    $position = get_theme_mod('sidebar_position');
+    $sbpos = array();
+    if ($position == '1'){
+        $sbpos['main'] = apply_filters('dd_main_width', 'col-md-9') . ' order-2';
+        $sbpos['sb'] = apply_filters('dd_sidebar_width', 'col-md-3') . ' order-1';
+        $sbpos['showsb'] = 'true';
+    }
+    elseif ($position == '2'){
+        $sbpos['main'] = apply_filters('dd_main_width', 'col-md-9');
+        $sbpos['sb'] = apply_filters('dd_sidebar_width', 'col-md-3');
+        $sbpos['showsb'] = 'true';
+    }
+    elseif ($position == 'none'){
+        $sbpos['main'] = apply_filters('dd_main_width', 'col-12');
+        $sbpos['sb'] = apply_filters('dd_sidebar_width', 'd-none');
+        $sbpos['showsb'] = 'false';
+    }
+    return $sbpos;
+}

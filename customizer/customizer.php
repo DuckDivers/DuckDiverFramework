@@ -96,7 +96,7 @@ $options[] = array( 'title'             => __( 'Disable Slide Post Type', 'dd_th
 --------------------------------------------------------------------------------------------------- */
 
 $options[] = array( 'title'             => __( 'Theme Options', 'dd_theme' ),
-                    'description'       => __( 'Theme Options', 'dd_theme' ),
+                    'description'       => __( 'Additional Options for the Duck Diver Framework', 'dd_theme' ),
                     'panel'             => '',
                     'id'                => 'dd_theme_options',
                     'priority'          => 10,
@@ -126,7 +126,21 @@ $options[] = array ('title'             => __( 'Global Messsage', 'dd_theme' ),
                     'default'           => '',
                     'option'            => 'textarea',
                     'sanitize_callback' => 'esc_html',
-                    'type'              => 'control' );				
+                    'type'              => 'control' );	
+$options[] = array ('title'             => __('Sidebar Position', 'dd_theme'),
+                    'description'       => __('For pages with the sidebar in use, position the sidebar on the left or the right side of the content. This applies to the default template, and the blog single pages.', 'dd_theme'),
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'sidebar_position',
+                    'default'           => '2',
+                    'option'            => 'radio',
+                    'sanitize_callback' => '',
+                    'choices'           => array(
+                        '1' => __( 'Left', 'text-domain' ),
+                        '2' => __( 'Right', 'text-domain' ),
+                        'none' => __( 'No Sidebar', 'text-domain' ),
+                    ),
+                    'type'              => 'control'
+                   );
 					
 /* Footer Section --
 ----------------------------------------------------------------------------------------------------*/			

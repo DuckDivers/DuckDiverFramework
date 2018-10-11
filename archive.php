@@ -9,11 +9,12 @@
 $featured_size = ( get_theme_mod( 'dd_featured_blog_image' ) ) ? get_theme_mod( 'dd_featured_blog_image' ) : 'large';
 $featured_class = ( $featured_size === 'large' ) ? 'col-12' : 'col-md-4';
 $post_class = ( $featured_size === 'large' ) ? 'col-12' : 'col-md-8';
+$sbpos = dd_get_sidebar_position();
 get_header();
 ?>
 <div class="container" id="content-wrap">
     <div class="row">
-        <main id="main" class="site-main col-md-9" role="main">
+        <main id="single" class="single-main <?php echo $sbpos['main'];?>" role="main">
 
             <?php if ( have_posts() ) : ?>
 
@@ -100,9 +101,11 @@ get_header();
 
         </main>
         <!-- #main -->
-        <aside class="col-md-3" id="sidebar">
-            <?php get_sidebar(); ?>
-        </aside>
+        <?php if ($sbpos['showsb'] == 'true'):?>
+            <aside class="<?php echo $sbpos['sb'];?>" id="sidebar">
+                <?php get_sidebar();?>
+            </aside>
+        <?php endif;?>
     </div>
 </div>
 <?php get_footer(); ?>

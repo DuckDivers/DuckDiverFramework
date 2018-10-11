@@ -13,8 +13,14 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 * 'dd_before_footer' - After Main Content - Before the Footer
 * 'dd_after_footer' - After the Footer before the wp_footer is called.
 
+## List of Filters
+* 'dd_main_width' - Defaults to col-md-9 - in use in the sidebar position function.
+* 'dd_sidebar_width' - Defaults to col-md-3 - in use in the sidebar position function.
+
 ### Changelog
 
+#### Ver 1.1.3 
+Added to customer in theme options "Sidebar Position" - left, right, none
 #### Ver 1.1.2
 Added action hooks and ability to turn off slider and remove CPT from admin.
 #### Ver 1.1
