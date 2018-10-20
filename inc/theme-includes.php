@@ -5,10 +5,13 @@
 	require_once('cpt-init.php'); 
 	require_once('dd-extra-widgets.php');
 	require_once('aq_resizer.php'); // Aqua Resizer
-    require_once(get_template_directory() . '/shortcodes/shortcodes.inc.php');
-    include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
-	require_once('functions-woo.php'); // WooCommerce Functionality
-    include_once(get_template_directory() . '/widgets/duck-social-widget.php');
+    	require_once(get_template_directory() . '/shortcodes/shortcodes.inc.php');
+    	include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
+    	include_once(get_template_directory() . '/widgets/duck-social-widget.php');
+
+// Add To your Child Theme to Include WooCommerce Functionality
+	require_once(get_template_directory() . '/inc/functions-woo.php'); // WooCommerce Functionality
+
 // Enqueue Custom Style from LessCompile
 function dd_enqueue_styles(){
         wp_enqueue_style('dd-custom-fonts', get_template_directory_uri() . '/css/duck.min.css');
