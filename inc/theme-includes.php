@@ -9,8 +9,12 @@
     	include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
     	include_once(get_template_directory() . '/widgets/duck-social-widget.php');
 
-// Add To your Child Theme to Include WooCommerce Functionality
-	require_once(get_template_directory() . '/inc/functions-woo.php'); // WooCommerce Functionality
+/*
+* 
+*  Add To your Child Theme to Include WooCommerce Functionality 
+*  >>	require_once(get_template_directory() . '/inc/functions-woo.php'); // WooCommerce Functionality
+*
+*/
 
 // Enqueue Custom Style from LessCompile
 function dd_enqueue_styles(){
