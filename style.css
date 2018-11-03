@@ -9735,6 +9735,13 @@ footer#colophon,header#masthead {
 .woocommerce figure.woocommerce-product-gallery__wrapper {
     max-width: inherit !important;
 }
+.woocommerce span.woocommerce-input-wrapper {
+  width: 100%;
+}
+.woocommerce .col-1,
+.woocommerce .col-2 {
+  max-width: none;
+}
 #dd-carousel img {
     width: 100%;
 }
