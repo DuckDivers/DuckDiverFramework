@@ -1,5 +1,8 @@
 /*/ Admin Custom CSS /*/
 
+.wp-block {
+    max-width: 1170px;
+}
 #slider_caption {width: 90%; height: 200px;}
 #slider_link {max-width: 80%; width: 600px;}
 ul.dd_home_widget li:first-child {
