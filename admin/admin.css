@@ -1,6 +1,6 @@
 /*/ Admin Custom CSS /*/
 
-.wp-block {
+#editor .wp-block {
     max-width: 1170px;
 }
 #slider_caption {width: 90%; height: 200px;}
