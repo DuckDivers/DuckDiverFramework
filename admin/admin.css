@@ -21,3 +21,7 @@ ul.dd_home_widget {
 ul.dd_home_widget a.button {
     margin-top: 1em;
 }
+/* Hide Jetpack Nag */
+.jitm-card {
+    display: none !important;
+}
