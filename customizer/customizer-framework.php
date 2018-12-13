@@ -359,6 +359,17 @@ function wpshed_cf_customizer_register( $wp_customize ) {
                         'description'       => $description,
                     ) );
                 break;
+               
+                // Date / Time Field
+                case 'date':
+                    $wp_customize->add_control( esc_attr( $option['id'] ), array(
+                        'type'              => 'date_time',
+                        'priority'          => $priority,
+                        'section'           => $section,
+                        'label'             => $title,
+                        'description'       => $description,
+                    ) );
+                break;
 
                 // Radio Field
                 case 'radio':
