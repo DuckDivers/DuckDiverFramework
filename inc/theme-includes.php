@@ -5,9 +5,9 @@
 	require_once('cpt-init.php'); 
 	require_once('dd-extra-widgets.php');
 	require_once('aq_resizer.php'); // Aqua Resizer
-    	require_once(get_template_directory() . '/shortcodes/shortcodes.inc.php');
-    	include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
-    	include_once(get_template_directory() . '/widgets/duck-social-widget.php');
+    require_once(get_template_directory() . '/shortcodes/shortcodes.inc.php');
+    include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
+    include_once(get_template_directory() . '/widgets/duck-social-widget.php');
 
 /*
 * 
@@ -44,4 +44,23 @@ function dd_custom_scripts() {
 		wp_enqueue_script('duck-custom');
 		wp_register_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array ('jquery'), '1.1.0', true);
 		wp_enqueue_script('magnific-popup');
+}
+
+//Only Load CF7 Scripts on CF7 Pages.
+if (is_plugin_active('contact-form-7/wp-contact-form-7.php')){
+    function contactform_dequeue_scripts() {
+        $load_scripts = false;
+        if( is_singular() ) {
+            $post = get_post();
+            if( has_shortcode($post->post_content, 'contact-form-7') ) {
+                $load_scripts = true;
+            }
+        }
+        if( ! $load_scripts ) {
+            wp_dequeue_script( 'contact-form-7' );
+            wp_dequeue_script('google-recaptcha');
+            wp_dequeue_style( 'contact-form-7' );
+        }
+    }
+add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );    
 }
