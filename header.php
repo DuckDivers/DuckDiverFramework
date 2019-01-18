@@ -46,7 +46,7 @@
 <?php do_action('dd_before_header');?>
 <div id="page" class="site container-fluid">
     <div class="row">
-        <header id="masthead" class="site-header col" role="banner">
+        <header id="masthead" class="site-header" role="banner">
             <?php get_template_part( 'page-sections/header', 'section' ); ?>
         </header><!-- #masthead -->
 <?php do_action('dd_after_header');?>
