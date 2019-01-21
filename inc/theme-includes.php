@@ -47,20 +47,23 @@ function dd_custom_scripts() {
 }
 
 //Only Load CF7 Scripts on CF7 Pages.
-if (is_plugin_active('contact-form-7/wp-contact-form-7.php')){
-    function contactform_dequeue_scripts() {
-        $load_scripts = false;
-        if( is_singular() ) {
-            $post = get_post();
-            if( has_shortcode($post->post_content, 'contact-form-7') ) {
-                $load_scripts = true;
+function check_cf7_active(){
+    if (is_plugin_active('contact-form-7/wp-contact-form-7.php')){
+        function contactform_dequeue_scripts() {
+            $load_scripts = false;
+            if( is_singular() ) {
+                $post = get_post();
+                if( has_shortcode($post->post_content, 'contact-form-7') ) {
+                    $load_scripts = true;
+                }
+            }
+            if( ! $load_scripts ) {
+                wp_dequeue_script( 'contact-form-7' );
+                wp_dequeue_script('google-recaptcha');
+                wp_dequeue_style( 'contact-form-7' );
             }
         }
-        if( ! $load_scripts ) {
-            wp_dequeue_script( 'contact-form-7' );
-            wp_dequeue_script('google-recaptcha');
-            wp_dequeue_style( 'contact-form-7' );
-        }
+    add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );    
     }
-add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );    
 }
+add_action('admin_init', 'check_cf7_active');
