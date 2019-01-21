@@ -79,18 +79,18 @@
 					{text: 'Recent Testimonials', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'recenttesti', { title: 'Recent Testimonials' } ); } }
 				]},
 				// Basic menu.
-				{text: 'Basic', menu: [
-					{text: 'Banner', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'banner', { title: 'Banner' } ); } },
-					{text: 'Comments', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'recentcomments', { title: 'Comments' } ); } },
-					{text: 'Post Cycle', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'post_cycle', { title: 'Post Cycle' } ); } },
-					{text: 'Carousel (Elasti)', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'carousel', { title: 'Carousel (Elasti)' } ); } },
-					{text: 'Carousel (OWL)', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'carousel_owl', { title: 'Carousel (OWL)' } ); } },
-					{text: 'Roundabout', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'roundabout', { title: 'Roundabout' } ); } },
-					{text: 'Service Box', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'service_box', { title: 'Service Box' } ); } },
-					{text: 'Hero Unit', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'hero_unit', { title: 'Hero Unit' } ); } },
-					{text: 'Categories', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'categories', { title: 'Categories' } ); } },
-					{text: 'Tags', onclick: function() { editor.execCommand( 'cherry_insert_self_immediate', false, 'tags', { title: 'Tags' } ); } },
-				]},
+//				{text: 'Basic', menu: [
+//					{text: 'Banner', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'banner', { title: 'Banner' } ); } },
+//					{text: 'Comments', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'recentcomments', { title: 'Comments' } ); } },
+//					{text: 'Post Cycle', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'post_cycle', { title: 'Post Cycle' } ); } },
+//					{text: 'Carousel (Elasti)', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'carousel', { title: 'Carousel (Elasti)' } ); } },
+//					{text: 'Carousel (OWL)', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'carousel_owl', { title: 'Carousel (OWL)' } ); } },
+//					{text: 'Roundabout', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'roundabout', { title: 'Roundabout' } ); } },
+//					{text: 'Service Box', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'service_box', { title: 'Service Box' } ); } },
+//					{text: 'Hero Unit', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'hero_unit', { title: 'Hero Unit' } ); } },
+//					{text: 'Categories', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'categories', { title: 'Categories' } ); } },
+//					{text: 'Tags', onclick: function() { editor.execCommand( 'cherry_insert_self_immediate', false, 'tags', { title: 'Tags' } ); } },
+//				]},
 				// Columns menu.
 				{text: 'Columns', menu: [
 					{text: 'container', onclick: function() { editor.execCommand( 'cherry_insert_immediate', false, 'container', { title: 'container' } ); } },
@@ -112,7 +112,6 @@
 				]},
 				// Fluid Columns menu.
 				{text: 'Fluid Columns', menu: [
-					{text: 'row fluid', onclick: function() { editor.execCommand( 'cherry_insert_immediate', false, 'row_fluid', { title: 'row fluid' } ); } },
 					{text: '1/2', onclick: function() { editor.execCommand( 'cherry_insert_immediate', false, 'one_half', { title: '1/2' } ); } },
 					{text: '1/3', onclick: function() { editor.execCommand( 'cherry_insert_immediate', false, 'one_third', { title: '1/3' } ); } },
 					{text: '2/3', onclick: function() { editor.execCommand( 'cherry_insert_immediate', false, 'two_third', { title: '2/3' } ); } },
@@ -296,7 +295,7 @@
 				{text: 'Table', onclick: function() { editor.execCommand( 'cherry_insert_table', false, 'table', { title: 'Table' } ); } },
 				{text: 'Pricing Table', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'chp_pricing_table', { title: 'Pricing Table' } ); } },
 				{text: 'Google Map', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'map', { title: 'Google Map' } ); } },
-				{text: 'Google Map Api', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'google_map_api', { title: 'Google Map Api' } ); } }
+				//{text: 'Google Map Api', onclick: function() { editor.execCommand( 'cherry_open_dialog', false, 'google_map_api', { title: 'Google Map Api' } ); } }
 			]
 		});
 	}); // TinyMCE plugin end.
