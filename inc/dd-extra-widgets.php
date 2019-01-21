@@ -52,7 +52,7 @@ function duck_diver_extra_widgets_init() {
 		'id'            => 'cart-holder',
 		'description'   => __( "Widget for cart in Header", "themeWoo" ),
 		'before_widget' => '<div id="%1$s" class="cart-holder">',
-		'after_widget'  => '</div>',
+		'after_widget'  => '</div><span class="cart-items"></span>',
 		'before_title'  => '<h3>',
 		'after_title'   => '</h3>'
 	)); */
