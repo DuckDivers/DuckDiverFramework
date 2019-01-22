@@ -1,6 +1,6 @@
 # Duck Diver Framework
 
-A starter theme based on _strap (based on _s) theme for WordPress.
+A starter theme for Duck Diver Marketing, based on _strap (based on _s) theme for WordPress.
 
 Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 
@@ -19,8 +19,9 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 * 'dd_sidebar_width' - Defaults to col-md-3 - in use in the sidebar position function.
 
 ### Changelog
-#### Ver 1.1.6
-Added additional hooks and included code for WooCommerce integration
+
+### Ver 1.1.6 
+Minor tweaks to TinyMCE Plugin to remove old shortcodes from Menu.  Added code for WC Cart.
 #### Ver 1.1.3 
 Added to customer in theme options "Sidebar Position" - left, right, none
 #### Ver 1.1.2
