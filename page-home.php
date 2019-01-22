@@ -26,21 +26,8 @@ get_header();
     </article>
     <!-- #post-## -->
     <?php endwhile; // End of the loop. ?>
-
-    <?php if (get_theme_mod('dd_slider_active')) {
-			$delay = get_theme_mod('dd_slider_delay'); }
-		else {
-			$delay = 'false';
-		}
-		?>
 </main>
 
-<script type="text/javascript">
-    // Carousel Init
-    jQuery( document ).ready( function ( $ ) {
-        $( '.carousel' ).carousel( {
-            interval: <?php echo $delay;?>
-        } );
-    } );
-</script>
+<?php do_action('dd_homepage_scripts');?>
+
 <?php get_footer(); ?>

@@ -48,7 +48,7 @@ function dd_get_sidebar_position(){
     }
     return $sbpos;
 }
-//Add Font Size to WP Visual Editor
+//Add Font Size to WP TinyMCE Editor
 function dd_wp_editor_fontsize_filter( $options ) {
 	array_shift( $options );
 	array_unshift( $options, 'fontsizeselect');
@@ -64,3 +64,23 @@ if ( ! function_exists( 'wpex_mce_text_sizes' ) ) {
     }
 }
 add_filter( 'tiny_mce_before_init', 'wpex_mce_text_sizes' ); 
+
+function add_slider_to_homepage(){
+	if (get_theme_mod('dd_slider_active')) {
+			$delay = get_theme_mod('dd_slider_delay'); }
+		else {
+			$delay = 'false';
+		}
+	ob_start(); ?>
+
+	<script type="text/javascript">
+		// Carousel Init
+		jQuery( document ).ready( function ( $ ) {
+			$( '.carousel' ).carousel( {
+				interval: <?php echo $delay;?>
+			} );
+		} );
+	</script>
+	<?php echo ob_get_clean();
+}
+add_action('dd_homepage_scripts', 'add_slider_to_homepage', 5);
