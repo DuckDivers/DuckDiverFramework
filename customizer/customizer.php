@@ -22,6 +22,14 @@ $options[] = array( 'title'             => __( 'Logo', 'dd_theme' ),
                     'sanitize_callback' => 'esc_url',
                     'type'              => 'control' );
 
+$options[] = array( 'title'             => __( 'Navbar Logo', 'dd_theme' ),
+                    'description'       => 'The Navbar Brand Logo for Mobile Menu',
+                    'section'           => 'title_tagline',
+                    'id'                => 'navbar_brand',
+                    'default'           => '',
+                    'option'            => 'image',
+                    'sanitize_callback' => 'esc_url',
+                    'type'              => 'control' );
 
 /* Google Analytics -------------------------------------------------------------- */
 
