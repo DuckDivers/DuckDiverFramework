@@ -23,7 +23,7 @@ i.duck-icon {
 	font-style: normal;
 }
 
-[class^="dd-"], [class*=" dd-"] {
+i[class^="dd-"], i[class*=" dd-"] {
 	font-family: 'duckdiver';
 	speak: none;
 	font-style: normal;
