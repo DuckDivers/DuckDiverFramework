@@ -20,6 +20,9 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 
 ### Changelog
 
+### Ver 1.2.0
+Update to Bootstrap 4.3.1, Include FB PAGE ID to open social widget links in Facebook App on IOS or Android.  Include class Mobile_Detect
+
 ### Ver 1.1.6 
 Minor tweaks to TinyMCE Plugin to remove old shortcodes from Menu.  Added code for WC Cart.
 #### Ver 1.1.3 
