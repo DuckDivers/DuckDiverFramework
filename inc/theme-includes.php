@@ -9,6 +9,11 @@
     include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
     include_once(get_template_directory() . '/widgets/duck-social-widget.php');
 
+// Check if Mobile_Detect is already included
+if (!class_exists('Mobile_Detect')) {
+	require_once (get_template_directory() .'/inc/mobile_detect.php');
+}
+
 /*
 * 
 *  Add To your Child Theme to Include WooCommerce Functionality 
@@ -67,3 +72,13 @@ function check_cf7_active(){
     }
 }
 add_action('admin_init', 'check_cf7_active');
+
+add_filter( 'body_class','dd_mobile_class' );
+function dd_mobile_class( $classes ) {
+ 	
+	$detect = new Mobile_Detect;
+	$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'mobile') : 'desktop');
+    $classes[] = 'is-' . $deviceType;
+     
+    return $classes;    
+}

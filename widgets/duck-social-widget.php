@@ -26,6 +26,7 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 
 		$networks['Twitter']['link']    = $instance['twitter'];
 		$networks['Facebook']['link']   = $instance['facebook'];
+        $networks['Facebook']['appid']  = $instance['facebookID'];
 		$networks['Flickr']['link']     = $instance['flickr'];
 		$networks['Rss']['link']        = $instance['rss'];
 		$networks['Linkedin']['link']   = $instance['linkedin'];
@@ -56,8 +57,9 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 			echo $before_title;
 				echo $title;
 			echo $after_title;
-		} ?>
-
+		} 
+		?>
+		
 		<!-- BEGIN SOCIAL NETWORKS -->
 		<?php if ($display == "both" or $display =="labels") {
 			$addClass = "social__list";
@@ -68,9 +70,30 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 		<ul class="social <?php echo $addClass ?> unstyled">
 			
 		<?php foreach(array("Facebook", "Twitter", "Flickr", "Rss", "Pinterest", "Instagram", "Linkedin", "Google", "Vimeo", "Youtube", "Tumblr") as $network) : ?>
+			<?php
+			if ($network === "Facebook"){
+				/**
+				 * Mobile Detect for Facebook App
+				 *
+				 * @since    1.2.0
+				 */
+	
+				$detect = new Mobile_Detect;
+				if( $detect->isMobile() ) {
+                    if ( $detect->isAndroidOS() ) {
+                        $link = 'fb://page/'.$networks['Facebook']['appid'].'?referrer=app_link';
+                    } else {
+                        $link = 'fb://page/?id='.$networks['Facebook']['appid'];       
+                    }
+                }
+                else {
+                    $link = $networks['Facebook']['link'];
+                }
+			
+			} ?>
 			<?php if (!empty($networks[$network]['link'])) : ?>
 			<li class="social_li">
-				<a class="social_link social_link__<?php echo strtolower($network); ?>" rel="tooltip" data-original-title="<?php echo strtolower($network); ?>" target="_blank" href="<?php echo $networks[$network]['link']; ?>">
+				<a class="social_link social_link__<?php echo strtolower($network); ?>" rel="tooltip" data-original-title="<?php echo strtolower($network); ?>" target="_blank" href="<?php echo ($network==="Facebook") ? $link : $networks[$network]['link']; ?>">
 					<?php if (($display == "both") or ($display =="icons")) { 
 							if ($network == "Google") { ?>
 								<span class="social_ico"><i class="fa fa-google-plus"></i></span>
@@ -99,12 +122,13 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 
 	function form( $instance ) {
 		/* Set up some default widget settings. */
-		$defaults = array( 'title' => '', 'twitter' => '', 'twitter_label' => '', 'facebook' => '', 'facebook_label' => '', 'flickr' => '', 'flickr_label' => '', 'rss' => '', 'rss_label' => '', 'linkedin' => '', 'linkedin_label' => '', 'instagram' => '', 'instagram_label' => '', 'youtube' => '', 'youtube_label' => '', 'pinterest' => '', 'pinterest_label' => '', 'google' => '', 'google_label' => '', 'vimeo' => '', 'vimeo_label' => '' , 'tumblr' => '', 'tumblr_label' => '', 'display' => 'icons', 'text' => '');		$instance = wp_parse_args( (array) $instance, $defaults );
+		$defaults = array( 'title' => '', 'twitter' => '', 'twitter_label' => '', 'facebook' => '', 'facebookID'=> '', 'facebook_label' => '', 'flickr' => '', 'flickr_label' => '', 'rss' => '', 'rss_label' => '', 'linkedin' => '', 'linkedin_label' => '', 'instagram' => '', 'instagram_label' => '', 'youtube' => '', 'youtube_label' => '', 'pinterest' => '', 'pinterest_label' => '', 'google' => '', 'google_label' => '', 'vimeo' => '', 'vimeo_label' => '' , 'tumblr' => '', 'tumblr_label' => '', 'display' => 'icons', 'text' => '');		$instance = wp_parse_args( (array) $instance, $defaults );
 
 		$twitter         = $instance['twitter'];
 		$facebook        = $instance['facebook'];
+        $facebookID      = $instance['facebookID'];
 		$flickr          = $instance['flickr'];
-		$rss            = $instance['rss'];
+		$rss             = $instance['rss'];
 		$linkedin        = $instance['linkedin'];
 		$instagram       = $instance['instagram'];
 		$youtube         = $instance['youtube'];
@@ -135,7 +159,10 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 
 		<p><label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook URL', 'text_domain') ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id('facebook'); ?>" name="<?php echo $this->get_field_name('facebook'); ?>" type="text" value="<?php echo esc_attr($facebook); ?>" /></p>
-
+        
+        <p><label for="<?php echo $this->get_field_id('facebookID'); ?>"><?php _e('Facebook Page ID', 'text_domain') ?>:</label>
+		<input class="widefat" id="<?php echo $this->get_field_id('facebookID'); ?>" name="<?php echo $this->get_field_name('facebookID'); ?>" type="text" value="<?php echo esc_attr($facebookID); ?>" /></p>
+    
 		<p><label for="<?php echo $this->get_field_id('facebook_label'); ?>"><?php _e('Facebook label', 'text_domain') ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id('facebook_label'); ?>" name="<?php echo $this->get_field_name('facebook_label'); ?>" type="text" value="<?php echo esc_attr($facebook_label); ?>" /></p>
 	</fieldset>
