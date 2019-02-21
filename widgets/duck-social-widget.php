@@ -79,7 +79,7 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 				 */
 	
 				$detect = new Mobile_Detect;
-				if( $detect->isMobile() ) {
+				if( $detect->isMobile() && !empty($networks['Facebook']['appid'])) {
                     if ( $detect->isAndroidOS() ) {
                         $link = 'fb://page/'.$networks['Facebook']['appid'].'?referrer=app_link';
                     } else {
