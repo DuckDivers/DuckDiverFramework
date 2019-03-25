@@ -642,16 +642,16 @@ if (!function_exists('extra_wrap_shortcode')) {
 }
 
 //Column Code
+//Column Code
 function duck_diver_columns( $atts, $content = null) {
 	extract(shortcode_atts(array(
 		'class' => '',
 		'id' 	=> '',
 	), $atts));
 	// add divs to the content
-		$return = '<div class="'. $class .'"';
-		if ($id !== ''){
-			 $return .= 'id="'.$id.'"';
-		}
+	$return = '<div';
+    if ($class !== '') $return .= ' class="' . $class .'"';
+    if ($id !== '') $return .= ' id="'.$id.'"';
 	$return .= '>';
 	$return .= do_shortcode( $content );
 	$return .= '</div>';
