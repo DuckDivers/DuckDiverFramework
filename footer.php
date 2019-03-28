@@ -30,10 +30,11 @@
                 <?php if($myfooter_text){?>
                 <?php echo get_theme_mod('footer_text'); ?>
                 <?php } else { ?>
+                &copy;
+                <?php echo date('Y'); ?>
                 <span class="footer-logo">
                     <?php bloginfo('name'); ?>
-                </span> &copy;
-                <?php echo date('Y'); ?>
+                </span>
                 <?php } ?> &bull;
                 <?php _e('Website Created by', 'dd_theme');?> <a href="https://www.duckdiverllc.com" target="_blank" class="duck"><i class="dd-duck-icon" style="vertical-align:middle"></i>Duck Diver Marketing</a>
             </div>
