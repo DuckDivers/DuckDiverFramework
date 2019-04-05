@@ -20,7 +20,7 @@ if (!function_exists('shortcode_recent_posts')) {
 				'custom_class'     => '',
 		), $atts));
 
-		$output = '<ul class="recent-posts '.$custom_class.' unstyled">';
+		$output = '<ul class="recent-posts '.$custom_class.' list-unstyled">';
 
 		global $post;
 		global $my_string_limit_words;
@@ -494,7 +494,7 @@ if (!function_exists('shortcode_recent_comments')) {
 		$comment_len = 100;
 		$comments = $wpdb->get_results($sql);
 
-		$output = '<ul class="recent-comments unstyled">';
+		$output = '<ul class="recent-comments list-unstyled">';
 
 		foreach ($comments as $comment) {
 			$output .= '<li class="list-item-'.$itemcounter.'">';

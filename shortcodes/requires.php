@@ -66,7 +66,7 @@ if(!function_exists('cherry_get_post_networks')){
 
 			$output = '<div class="'.$class.'">';
 			$output .= $network_title && $display_title ? $before_title.$network_title.$after_title : '';
-			$output .= '<ul class="clearfix unstyled">';
+			$output .= '<ul class="list-unstyled">';
 			foreach ($networks_array as $networks_id) {
 				$network_array = explode(";", get_option('network_'.$post_id.'_'.$networks_id, array('','','')));
 				$output .= '<li class="network_'.$count.'">';

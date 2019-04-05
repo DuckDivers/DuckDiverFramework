@@ -99,7 +99,7 @@ if (!function_exists('posts_grid_shortcode')) {
 				$output_end = '</ul>';
 			}
 
-			$output = '<ul class="posts-grid row-fluid unstyled '. $custom_class .' ul-item-'.$countul.'">';
+			$output = '<ul class="posts-grid d-flex flex-direction-row list-unstyled '. $custom_class .' ul-item-'.$countul.'">';
 
 
 			foreach ( $posts as $j => $post ) {
@@ -131,7 +131,7 @@ if (!function_exists('posts_grid_shortcode')) {
 				if ($count > $columns) {
 					$count = 1;
 					$countul ++;
-					$output .= '<ul class="posts-grid row-fluid unstyled '. $custom_class .' ul-item-'.$countul.'">';
+					$output .= '<ul class="posts-grid d-flex flex-direction-row list-unstyled '. $custom_class .' ul-item-'.$countul.'">';
 				}
 
 				$output .= '<li class="'. $spans .'-columns list-item-'.$count.'">';

@@ -52,7 +52,7 @@ if ( !function_exists( 'shortcode_roundabout' ) ) {
 			$output .= '<h2>' . $title . '</h2>';
 		}
 
-		$output .= '<ul id="roundabout-list-' . $ra_id . '" class="unstyled">';
+		$output .= '<ul id="roundabout-list-' . $ra_id . '" class="list-unstyled">';
 
 		global $post;
 

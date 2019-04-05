@@ -67,7 +67,7 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 			$addClass = "social__row clearfix";
 		} ?>
 		
-		<ul class="social <?php echo $addClass ?> unstyled">
+		<ul class="social <?php echo $addClass ?> list-unstyled">
 			
 		<?php foreach(array("Facebook", "Twitter", "Flickr", "Rss", "Pinterest", "Instagram", "Linkedin", "Google", "Vimeo", "Youtube", "Tumblr") as $network) : ?>
 			<?php

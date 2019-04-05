@@ -91,7 +91,7 @@ if (!function_exists('mini_posts_grid_shortcode')) {
 			$posts = get_posts($args);
 			$i = 0;
 
-			$output = '<ul class="mini-posts-grid grid-align-'.$align.' unstyled '.$custom_class.'">';
+			$output = '<ul class="mini-posts-grid grid-align-'.$align.' list-unstyled '.$custom_class.'">';
 
 			foreach($posts as $key => $post) {
 				//Check if WPML is activated
