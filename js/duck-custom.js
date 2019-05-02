@@ -63,3 +63,10 @@ $(document).ready(function() {	 // Document Ready
 		});
 						
 })( jQuery );
+
+jQuery(function() {
+	// clear cf7 error msg on mouseover
+	jQuery(".wpcf7-form-control-wrap").on("mouseover", function(){
+		jQuery("span.wpcf7-not-valid-tip", this).fadeOut();
+	});
+});
