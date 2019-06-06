@@ -61,12 +61,13 @@ $(document).ready(function() {	 // Document Ready
 				$(this).addClass('cart-opened').next().slideDown(300);
 			}
 		});
-						
-})( jQuery );
+    	//Fix contact form not valid messages errors
+        jQuery('.wpcf7-not-valid-tip').on('mouseover', function(){
+            jQuery(this).fadeOut();
+            jQuery('.wpcf7-not-valid').removeClass('.wpcf7-not-valid');
+        });
 
-jQuery(function() {
-	// clear cf7 error msg on mouseover
-	jQuery(".wpcf7-form-control-wrap").on("mouseover", function(){
-		jQuery("span.wpcf7-not-valid-tip", this).fadeOut();
-	});
-});
+        jQuery('.wpcf7-form input[type="reset"]').on('click', function(){
+            jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
+        });					
+})( jQuery );
