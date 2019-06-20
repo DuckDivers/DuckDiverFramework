@@ -71,3 +71,10 @@ $(document).ready(function() {	 // Document Ready
             jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
         });					
 })( jQuery );
+// Prevent Multiple Clicks on Contact Form 7 Submissions
+jQuery(document).on('click', '.wpcf7-submit', function(e){
+     if( jQuery('.ajax-loader').hasClass('is-active') ) {
+          e.preventDefault();
+          return false;
+     }
+});
