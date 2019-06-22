@@ -54,13 +54,15 @@ $(document).ready(function() {	 // Document Ready
 	});
 
 	//Dropdown cart in header
-		$('.cart-holder > h3').click(function(){
-			if($(this).hasClass('cart-opened')) {
-				$(this).removeClass('cart-opened').next().slideUp(300);
-			} else {
-				$(this).addClass('cart-opened').next().slideDown(300);
-			}
-		});
+	$('.cart-holder').click(function(){
+		if($(this).hasClass('cart-opened')) {
+			$(this).removeClass('cart-opened');
+	$('.widget_shopping_cart_content').slideUp(300);
+		} else {
+			$(this).addClass('cart-opened');
+	$('.widget_shopping_cart_content').slideDown(300);
+		}
+	});
     	//Fix contact form not valid messages errors
         jQuery('.wpcf7-not-valid-tip').on('mouseover', function(){
             jQuery(this).fadeOut();
