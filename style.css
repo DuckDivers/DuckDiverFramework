@@ -10130,7 +10130,9 @@ a.text-dark:hover, a.text-dark:focus {
   margin-left: 1.5em; }
 
 .aligncenter {
-  margin: 0px auto; }
+  margin: 0px auto; 
+  display: block;
+}
 
 .entry-footer span {
   padding-right: 10px; }
