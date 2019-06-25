@@ -149,6 +149,15 @@ $options[] = array ('title'             => __('Sidebar Position', 'dd_theme'),
                     ),
                     'type'              => 'control'
                    );
+$options[] = array ('title'             => __( 'Shop Title', 'dd_theme' ),
+                    'description'       => 'Enter the Shop Title',
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'dd_shop_title',
+                    'default'           => 'Shop',
+                    'option'            => 'text',
+                    'sanitize_callback' => 'esc_html',
+                    'type'              => 'control'
+                    );
 					
 /* Footer Section --
 ----------------------------------------------------------------------------------------------------*/			
