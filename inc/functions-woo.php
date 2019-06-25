@@ -4,9 +4,9 @@
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
     add_theme_support( 'woocommerce' );
-    add_theme_support( 'wc-product-gallery-zoom' );
+/*  add_theme_support( 'wc-product-gallery-zoom' );
     add_theme_support( 'wc-product-gallery-lightbox' );
-    add_theme_support( 'wc-product-gallery-slider' );
+    add_theme_support( 'wc-product-gallery-slider' );*/
 }
 
 // Template Wrappers
@@ -29,7 +29,6 @@ function dd_prepare_shop_wrappers(){
 	/* Woocommerce Make for Bootstrap*/
 	remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 	remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5, 0);
 	add_action('woocommerce_before_main_content', 'dd_after_woo_breadcrumbs', 40, 0);
 	add_action('woocommerce_before_main_content', 'dd_open_shop_content_wrappers', 10);
 	add_action('woocommerce_after_main_content', 'dd_close_shop_content_wrappers', 10);
@@ -62,4 +61,11 @@ function cherry_child_get_cart( $title ) {
 	$items_str = '<span class="cart-items>' . $count . '</span>';
 	$title = str_replace( '%items_num%', $items_str, $title );
 	return $title;
+}
+// Alter the Shop page title
+add_filter( 'woocommerce_page_title', 'custom_woocommerce_page_title');
+function custom_woocommerce_page_title( $page_title ) {
+  if( $page_title == 'Shop' ) {
+    return get_theme_mod('dd_shop_title');
+  }
 }
