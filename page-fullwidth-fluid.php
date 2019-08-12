@@ -10,7 +10,7 @@ get_header();
 
 <div id="full-width-container" class="container-fluid">
     <div class="row">
-        <main id="main" class="site-main col" role="main">
+        <main id="main" class="site-main col p-0" role="main">
             
             <?php while ( have_posts() ) : the_post(); ?>
             
