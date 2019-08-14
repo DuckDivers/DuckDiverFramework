@@ -18,7 +18,6 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 ## List of Filters
 * 'dd_main_width' - Defaults to col-md-9 - in use in the sidebar position function.
 * 'dd_sidebar_width' - Defaults to col-md-3 - in use in the sidebar position function.
-* 'dd_slider_query' - adds ability to pass array to the get slider query 
  
 ### Changelog
 
