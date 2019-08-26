@@ -28,7 +28,7 @@ if (!function_exists('shortcode_well')) {
 					'size' => 'normal'
 				), $atts));
 
-		$output = '<div class="well '.$size.'">';
+		$output = '<div class="card '.$size.'">';
 		$output .= do_shortcode($content);
 		$output .= '</div>';
 
@@ -163,4 +163,23 @@ if (!function_exists('shortcode_site_map')) {
 	}
 	add_shortcode('site_map', 'shortcode_site_map');
 }
+
+// Add YouTube Embed Responsive
+if(!function_exists('dd_yt_embed_responsive')){
+    function dd_yt_embed_responsive($atts){
+        $args = shortcode_atts(array(
+            'id'    => '',
+            'class' => '',
+            'ratio' => ''
+        ), $atts, 'dd_yt_embed_responsive');
+
+        $out  = "<div class='embed-responsive embed-responsive-{$args['ratio']}";
+        $out .= (!empty($args['class'])) ? ' ' . $args['class'] : '';
+        $out .= "'><iframe src='https://youtube.com/embed/{$args['id']}?rel=0 class='embed-item'></iframe></div>";
+
+        return $out;
+    } 
+    add_shortcode('dd-youtube', 'dd_yt_embed_responsive');
+}
+
 ?>
