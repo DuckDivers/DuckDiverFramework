@@ -39,9 +39,13 @@ function load_custom_wp_admin_style() {
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
 // Add Custom Image Sizes
-add_image_size( 'admin_thumb', 80, 80, true); //Featured Image for Blog
-add_image_size( 'slider-post-thumbnail', 2000, 600, true ); // Slider Thumbnail
-
+if (!function_exists('dd_custom_image_sizes')){
+    function dd_custom_image_sizes(){
+        add_image_size( 'admin_thumb', 80, 80, true); //Featured Image for Blog
+        add_image_size( 'slider-post-thumbnail', 2000, 600, true ); // Slider Thumbnail
+    }
+}
+add_action('after_setup_theme', 'dd_custom_image_sizes');
 // Enqueue Custom Scripts
 add_action( 'wp_enqueue_scripts', 'dd_custom_scripts' );
 function dd_custom_scripts() {
