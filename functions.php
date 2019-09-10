@@ -159,3 +159,9 @@ require get_template_directory() . '/inc/functions-strap.php';
 require get_template_directory() . '/inc/theme-includes.php';
 
 require get_template_directory() . '/customizer/customizer-framework.php';
+/**
+ * @ Added Function / Meta Boxes to
+ * @ Disable Auto P on Pages
+ * @since    1.2.5
+ */
+require get_template_directory() . '/inc/class-disable-autop.php';
