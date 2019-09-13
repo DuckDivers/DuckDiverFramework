@@ -162,6 +162,11 @@ require get_template_directory() . '/customizer/customizer-framework.php';
 /**
  * @ Added Function / Meta Boxes to
  * @ Disable Auto P on Pages
+ * @ Includes switch to turn on and off to avoid conflicts @since 1.2.7
  * @since    1.2.5
  */
-require get_template_directory() . '/inc/class-disable-autop.php';
+if (get_theme_mod('dd_theme_disable_autop') == '1'){
+    return;
+    }   else    {
+        require get_template_directory() . '/inc/class-disable-autop.php';
+}

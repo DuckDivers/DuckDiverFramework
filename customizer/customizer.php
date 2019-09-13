@@ -172,7 +172,16 @@ $options[] = array ('title'             => __( 'Shop Title', 'dd_theme' ),
                     'sanitize_callback' => 'esc_html',
                     'type'              => 'control'
                     );
-					
+
+$options[] = array( 'title'             => __( 'Remove Disable AutoP', 'dd_theme' ),
+                    'description'       => __( 'Remove the Disable AutoP function from this site.', 'dd_theme' ),
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'dd_theme_disable_autop',
+					'default'			=> '',
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
+
 /* Footer Section --
 ----------------------------------------------------------------------------------------------------*/			
 
