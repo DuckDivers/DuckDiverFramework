@@ -18,13 +18,16 @@ if ( $slider_query->have_posts() ) {
         }
     }
 }
+
+$fade = (get_theme_mod('dd_slider_transition')=='fade') ? ' carousel-fade' : '';
+
 wp_reset_postdata();
 ?>
 <?php if(count($slides) > 0) { ?>
 <?php do_action('dd_before_slider');?>
 <div class="container-fluid">
     <div class="row">
-        <div id="dd-carousel" class="carousel slide" data-ride="carousel">
+        <div id="dd-carousel" class="carousel slide<?php echo $fade;?>" data-ride="carousel">
             <?php if (get_theme_mod('dd_slider_navs')) :?>
             <ol class="carousel-indicators">
                 <?php for($i=0;$i<count($slides);$i++) { ?>

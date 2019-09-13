@@ -21,10 +21,13 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
  
 ### Changelog
 
-###1.2.6
+### 1.2.7 
+Remove Comment form from Page templates, add slider options to crossfade or slide.
+
+### 1.2.6
 Fix for Slider Width
 
-###1.2.5
+### 1.2.5
 Added abilityto remove wpautoP
 
 ### 1.2.1

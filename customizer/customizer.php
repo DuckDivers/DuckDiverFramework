@@ -91,6 +91,20 @@ $options[] = array( 'title'             => __( 'Slider Navs', 'dd_theme' ),
                     'sanitize_callback' => '',
                     'type'              => 'control' );
 
+$options[] = array( 'title'             => __( 'Slider Transition', 'dd_theme' ),
+                    'description'       => 'What type of transition between slides',
+                    'section'           => 'theme_slider_options',
+                    'id'                => 'dd_slider_transition',
+                    'default'           => 'value1',
+                    'option'            => 'radio',
+                    'sanitize_callback' => '',
+                    'choices'           => array(
+                        'slide' => __( 'Slide', 'dd_theme' ),
+                        'fade' => __( 'Cross Fade', 'dd_theme' ),
+                    ),
+                    'type'              => 'control' );
+
+
 $options[] = array( 'title'             => __( 'Disable Slide Post Type', 'dd_theme' ),
                     'description'       => __('Check box to entirely remove the SLIDES from the Admin. This does not delete any existing slide data.'),
                     'section'           => 'theme_slider_options',
