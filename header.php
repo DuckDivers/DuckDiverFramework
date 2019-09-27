@@ -21,6 +21,12 @@
 	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="<?php echo get_theme_mod('android_theme_color');?>">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="<?php echo get_theme_mod('android_theme_color');?>">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo get_theme_mod('android_theme_color');?>">
 
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>

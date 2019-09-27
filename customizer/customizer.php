@@ -31,6 +31,15 @@ $options[] = array( 'title'             => __( 'Navbar Logo', 'dd_theme' ),
                     'sanitize_callback' => 'esc_url',
                     'type'              => 'control' );
 
+$options[] = array( 'title'             => __( 'Mobile Color Theme', 'dd_theme' ),
+                    'description'       => 'The color that the background on mobile devices',
+                    'section'           => 'title_tagline',
+                    'id'                => 'android_theme_color',
+                    'default'           => '#eeeeee',
+                    'option'            => 'color',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
+
 /* Google Analytics -------------------------------------------------------------- */
 
 $options[] = array( 'title'             => __( 'Google Analytics', 'dd_theme' ),
