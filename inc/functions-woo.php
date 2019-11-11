@@ -37,7 +37,7 @@ if (!function_exists('dd_close_shop_content_wrappers')){
                 } else {
                      echo '<aside class="'.$sbpos['sb'].' sidebar" id="sidebar">'; dynamic_sidebar('shop-sidebar'); echo '</aside>';
                 }		
-            echo '</div><!-- Shop Wrapper-></div><!-- Container -->';
+            echo '</div></div>';
 		}
 }
 
