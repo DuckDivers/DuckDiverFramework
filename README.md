@@ -18,6 +18,7 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 ## List of Filters
 * 'dd_main_width' - Defaults to col-md-9 - in use in the sidebar position function.
 * 'dd_sidebar_width' - Defaults to col-md-3 - in use in the sidebar position function.
+* 'dd_slider_image_size' - defaults to 'slider-post-thumbnail' which is 2000 x 600
  
 ### Changelog
 

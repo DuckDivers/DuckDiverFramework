@@ -8,7 +8,7 @@ if ( $slider_query->have_posts() ) {
         if ( has_post_thumbnail() ) {
             $temp = array();
             $thumb_id = get_post_thumbnail_id();
-            $thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'slider-post-thumbnail', true );
+            $thumb_url_array = wp_get_attachment_image_src( $thumb_id, apply_filters('dd_slider_image_size', 'slider-post-thumbnail'), true );
             $thumb_url = $thumb_url_array[ 0 ];
             $temp[ 'title' ] = get_the_title();
             $temp[ 'excerpt' ] = get_post_meta( $post->ID, 'slider_caption', true );
