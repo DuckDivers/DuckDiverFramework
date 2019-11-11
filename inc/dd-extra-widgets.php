@@ -44,18 +44,27 @@ if (! function_exists('duck_diver_extra_widgets_init')){
 			'after_title'   => '</h3>',
 		) );
 
-		// If needed - Cart Holder 
-
-		// Cart Holder
-		/*register_sidebar(array(
-			'name'          => __( "Cart Holder", "themeWoo" ),
-			'id'            => 'cart-holder',
-			'description'   => __( "Widget for cart in Header", "themeWoo" ),
-			'before_widget' => '<div id="%1$s" class="cart-holder">',
-			'after_widget'  => '</div><span class="cart-items"></span>',
-			'before_title'  => '<h3>',
-			'after_title'   => '</h3>'
-		)); */
+        if (in_array('woocommerce/woocommerce.php', get_option( 'active_plugins') ) ) {
+        // Cart Holder
+            register_sidebar(array(
+                'name'          => __( "Cart Holder", "themeWoo" ),
+                'id'            => 'cart-holder',
+                'description'   => __( "Widget for cart in Header", "themeWoo" ),
+                'before_widget' => '<div id="%1$s" class="cart-holder">',
+                'after_widget'  => '</div><span class="cart-items"></span>',
+                'before_title'  => '<h3>',
+                'after_title'   => '</h3>'
+            ));
+            register_sidebar(array(
+                'name'          => __("Shop Sidebar", 'dd_theme'),
+                'id'            => 'shop-sidebar',
+                'description'   => __("The sidebar for the shop if used", 'dd_theme'),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h2 class="widgettitle">',
+                'after_title'   => '</h2>',
+            ));
+        }
 	}
 }
 add_action( 'widgets_init', 'duck_diver_extra_widgets_init' );

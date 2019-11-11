@@ -28,8 +28,8 @@ function dd_theme_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'dd_theme_body_classes' );
 
-function dd_get_sidebar_position(){
-    $position = get_theme_mod('sidebar_position');
+function dd_get_sidebar_position($sidebar = "sidebar_position"){
+    $position = get_theme_mod($sidebar);
     $sbpos = array();
     if ($position == '1'){
         $sbpos['main'] = apply_filters('dd_main_width', 'col-md-9') . ' order-2';

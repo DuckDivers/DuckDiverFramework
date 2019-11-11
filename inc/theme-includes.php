@@ -15,11 +15,9 @@ if (!class_exists('Mobile_Detect')) {
 }
 
 /*
-* 
-*  Add To your Child Theme to Include WooCommerce Functionality 
-*  >>	require_once(get_template_directory() . '/inc/functions-woo.php'); // WooCommerce Functionality
-*
+*  Check if WooCommerce is Active and Activate Features
 */
+if (in_array('woocommerce/woocommerce.php', get_option( 'active_plugins') ) ) require_once(get_template_directory() . '/inc/functions-woo.php'); // WooCommerce Functionality
 
 // Enqueue Custom Style from LessCompile
 function dd_enqueue_styles(){

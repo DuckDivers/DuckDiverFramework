@@ -181,6 +181,37 @@ $options[] = array ('title'             => __( 'Shop Title', 'dd_theme' ),
                     'sanitize_callback' => 'esc_html',
                     'type'              => 'control'
                     );
+$options[] = array ('title'             => __('Shop Sidebar Position', 'dd_theme'),
+                    'description'       => __('Sidebar in the Shop Section if applicable.', 'dd_theme'),
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'wc_sidebar_position',
+                    'default'           => '2',
+                    'option'            => 'radio',
+                    'sanitize_callback' => '',
+                    'choices'           => array(
+                        '1' => __( 'Left', 'text-domain' ),
+                        '2' => __( 'Right', 'text-domain' ),
+                    ),
+                    'type'              => 'control'
+                   );
+
+$options[] = array( 'title'             => __( 'Hide Sidebar on Product Page?', 'dd_theme' ),
+                    'description'       => __( 'Disable Sidebar on Product Page.', 'dd_theme' ),
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'dd_theme_disable_product_sidebar',
+					'default'			=> '',
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
+
+$options[] = array( 'title'             => __( 'Hide Sidebar on Shop Archive Pages?', 'dd_theme' ),
+                    'description'       => __( 'Disable Sidebar on Shop/Category Pages.', 'dd_theme' ),
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'dd_theme_disable_archive_sidebar',
+					'default'			=> '',
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
 
 $options[] = array( 'title'             => __( 'Remove Disable AutoP', 'dd_theme' ),
                     'description'       => __( 'Remove the Disable AutoP function from this site.', 'dd_theme' ),
