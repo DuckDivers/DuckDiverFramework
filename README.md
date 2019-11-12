@@ -22,6 +22,12 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
  
 ### Changelog
 
+### 1.2.9
+* Added dd_slider_image_size filter.
+* Added WC parent theme WC support on plugin activation.  Included basic WC functions in pluggable functions for child theme. 
+* Added WC Sidebar options to customizer.
+* Added extra mt-6 class - 4rem;
+
 ### 1.2.7 
 Remove Comment form from Page templates, add slider options to crossfade or slide.
 
