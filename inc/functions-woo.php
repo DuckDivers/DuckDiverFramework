@@ -1,7 +1,6 @@
 <?php 
 // Parent Theme WooCommerce Functionality Pluggable Functions
 // Declare Woo Support
-add_action( 'after_setup_theme', 'woocommerce_support' );
 if (!function_exists('woocommerce_support')){
     function woocommerce_support() {
         add_theme_support( 'woocommerce' );
@@ -9,6 +8,7 @@ if (!function_exists('woocommerce_support')){
         add_theme_support( 'wc-product-gallery-lightbox' );
         add_theme_support( 'wc-product-gallery-slider' );
     }
+    add_action( 'after_setup_theme', 'woocommerce_support' );
 }
 // Bootstrap Template Wrappers
 if (!function_exists('dd_open_shop_content_wrappers')){
@@ -52,12 +52,11 @@ if (!function_exists('dd_prepare_shop_wrappers')){
         add_action('woocommerce_after_main_content', 'dd_close_shop_content_wrappers', 10);
         /* end Woocommerce */	
     }
-}
 add_action('wp_head', 'dd_prepare_shop_wrappers');
+}
+
 
 // Ensure cart contents update when products are added to the cart via AJAX
-add_filter( 'woocommerce_add_to_cart_fragments', 'cherry_child_header_add_to_cart_fragment' );
-
 if (!function_exists('cherry_child_header_add_to_cart_fragment')){
     function cherry_child_header_add_to_cart_fragment( $fragments ) {
         ob_start(); ?>
@@ -70,9 +69,8 @@ if (!function_exists('cherry_child_header_add_to_cart_fragment')){
         $fragments['span.cart-items'] = ob_get_clean();
         return $fragments;
     }
+    add_filter( 'woocommerce_add_to_cart_fragments', 'cherry_child_header_add_to_cart_fragment' );
 }
-
-add_filter( 'widget_title', 'cherry_child_get_cart', 10 );
 
 // Get Cart Item Counts
 if (!function_exists('cherry_child_get_cart')){
@@ -85,14 +83,15 @@ if (!function_exists('cherry_child_get_cart')){
         $title = str_replace( '%items_num%', $items_str, $title );
         return $title;
     }
+    add_filter( 'widget_title', 'cherry_child_get_cart', 10 );
 }
 
 // Alter the Shop page title
-add_filter( 'woocommerce_page_title', 'custom_woocommerce_page_title');
 if (!function_exists('custom_woocommerce_page_title')){
     function custom_woocommerce_page_title( $page_title ) {
       if( $page_title == 'Shop' ) {
         return get_theme_mod('dd_shop_title');
       }
     }
+    add_filter( 'woocommerce_page_title', 'custom_woocommerce_page_title');
 }
