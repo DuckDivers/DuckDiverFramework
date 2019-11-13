@@ -66,8 +66,9 @@ if (! function_exists('duck_diver_extra_widgets_init')){
             ));
         }
 	}
+    add_action( 'widgets_init', 'duck_diver_extra_widgets_init' );
 }
-add_action( 'widgets_init', 'duck_diver_extra_widgets_init' );
+
 
 class duck_dashboard_widget {
 

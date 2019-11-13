@@ -62,8 +62,9 @@ if ( ! function_exists( 'wpex_mce_text_sizes' ) ) {
         $initArray['fontsize_formats'] = "9px 10px 12px 13px 14px 16px 18px 21px 24px 28px 32px 36px";
         return $initArray;
     }
+    add_filter( 'tiny_mce_before_init', 'wpex_mce_text_sizes' ); 
 }
-add_filter( 'tiny_mce_before_init', 'wpex_mce_text_sizes' ); 
+
 
 function add_slider_to_homepage(){
 	if (get_theme_mod('dd_slider_active')) {

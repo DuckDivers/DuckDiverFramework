@@ -1,10 +1,10 @@
 <?php 
 // Require Extra Files and Functions
-	require_once('lessc.inc.php');
-	require_once('less-compile.php'); // Less Compiler
-	require_once('cpt-init.php'); 
-	require_once('dd-extra-widgets.php');
-	require_once('aq_resizer.php'); // Aqua Resizer
+    require_once('lessc.inc.php');
+    require_once('less-compile.php'); // Less Compiler
+    require_once('cpt-init.php'); 
+    require_once('dd-extra-widgets.php');
+    require_once('aq_resizer.php'); // Aqua Resizer
     require_once(get_template_directory() . '/shortcodes/shortcodes.inc.php');
     include_once(get_template_directory() . '/admin/shortcodes/tinymce-shortcodes.php');
     include_once(get_template_directory() . '/widgets/duck-social-widget.php');
@@ -42,8 +42,8 @@ if (!function_exists('dd_custom_image_sizes')){
         add_image_size( 'admin_thumb', 80, 80, true); //Featured Image for Blog
         add_image_size( 'slider-post-thumbnail', 2000, 600, true ); // Slider Thumbnail
     }
+    add_action('after_setup_theme', 'dd_custom_image_sizes');
 }
-add_action('after_setup_theme', 'dd_custom_image_sizes');
 // Enqueue Custom Scripts
 add_action( 'wp_enqueue_scripts', 'dd_custom_scripts' );
 function dd_custom_scripts() {
