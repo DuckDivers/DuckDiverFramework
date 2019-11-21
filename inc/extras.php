@@ -32,8 +32,8 @@ function dd_get_sidebar_position($sidebar = "sidebar_position"){
     $position = get_theme_mod($sidebar);
     $sbpos = array();
     if ($position == '1'){
-        $sbpos['main'] = apply_filters('dd_main_width', 'col-md-9') . ' order-2';
-        $sbpos['sb'] = apply_filters('dd_sidebar_width', 'col-md-3') . ' order-1';
+        $sbpos['main'] = apply_filters('dd_main_width', 'col-md-9') . ' order-md-2';
+        $sbpos['sb'] = apply_filters('dd_sidebar_width', 'col-md-3') . ' order-md-1';
         $sbpos['showsb'] = 'true';
     }
     elseif ($position == '2'){
