@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Parent Theme WooCommerce Functionality Pluggable Functions
 // Declare Woo Support
 if (!function_exists('woocommerce_support')){
@@ -20,7 +20,7 @@ if (!function_exists('dd_open_shop_content_wrappers')){
                     echo '<main id="main" class="col-12" role="main">';
                 } else {
                      echo '<main id="main" class="'.$sbpos['main'].'" role="main">';
-                }		
+                }
         }
 }
 if (!function_exists('dd_after_woo_breadcrumbs')){
@@ -31,12 +31,13 @@ if (!function_exists('dd_after_woo_breadcrumbs')){
 if (!function_exists('dd_close_shop_content_wrappers')){
 		function dd_close_shop_content_wrappers(){
             $sbpos = dd_get_sidebar_position('wc_sidebar_position');
-			echo			'</main>';
+			      echo '</main>';
              if ((true == get_theme_mod('dd_theme_disable_archive_sidebar') && !is_product()) || (true == get_theme_mod('dd_theme_disable_product_sidebar') && is_product())){
-                    return false;
+                    goto closeDiv;
                 } else {
                      echo '<aside class="'.$sbpos['sb'].' sidebar" id="sidebar">'; dynamic_sidebar('shop-sidebar'); echo '</aside>';
-                }		
+                }
+			closeDiv:
             echo '</div></div>';
 		}
 }
@@ -46,11 +47,11 @@ if (!function_exists('dd_prepare_shop_wrappers')){
         /* Woocommerce Make for Bootstrap*/
         remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
         remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-        remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+        remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
         add_action('woocommerce_before_main_content', 'dd_after_woo_breadcrumbs', 40, 0);
         add_action('woocommerce_before_main_content', 'dd_open_shop_content_wrappers', 10);
         add_action('woocommerce_after_main_content', 'dd_close_shop_content_wrappers', 10);
-        /* end Woocommerce */	
+        /* end Woocommerce */
     }
 add_action('wp_head', 'dd_prepare_shop_wrappers');
 }
