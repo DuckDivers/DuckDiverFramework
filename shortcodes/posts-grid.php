@@ -134,7 +134,7 @@ if (!function_exists('posts_grid_shortcode')) {
 					$output .= '<ul class="posts-grid d-flex flex-direction-row list-unstyled '. $custom_class .' ul-item-'.$countul.'">';
 				}
 
-				$output .= '<li class="'. $spans .'-columns list-item-'.$count.'">';
+				$output .= '<li class="columns-'. $spans .' list-item-'.$count.'">';
 
 					if($lightbox == 'yes') {
 						if(has_post_thumbnail($post_id) && $mediaType == 'Image') {
@@ -210,7 +210,7 @@ if (!function_exists('posts_grid_shortcode')) {
 							$output .= '<a href="'.get_permalink($post_id).'" title="'.get_the_title($post_id).'">';
 							$output .= '<img  src="'.$image.'" alt="'.get_the_title($post_id).'" />';
 							$output .= '</a></figure>';
-						} 
+						}
 					}
 
 					$output .= '<div class="clear"></div>';

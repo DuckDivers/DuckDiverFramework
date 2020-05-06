@@ -110,7 +110,7 @@ if (!function_exists('posts_list_shortcode')) {
 			$format = get_post_format();
 
 				$output .= '<div class="row-fluid list-item-'.$i.'">';
-				$output .= '<article class="span12 post__holder">';
+				$output .= '<article class="col-12 post__holder">';
 
 					//post header
 					$output .= '<header class="post-header">';
