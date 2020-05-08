@@ -59,7 +59,7 @@ $options[] = array( 'title'             => __( 'Analytics Code', 'dd_theme' ),
                     'sanitize_callback' => 'sanitize_text_field',
                     'type'              => 'control' );
 
-/* / Google Analytics 					
+/* / Google Analytics
 ---------------------------------------------------------------------------------------------------*/
 
 /* ---------------------------------------------------------------------------------------------------
@@ -156,8 +156,8 @@ $options[] = array ('title'             => __( 'Global Messsage', 'dd_theme' ),
                     'id'                => 'global_message',
                     'default'           => '',
                     'option'            => 'textarea',
-                    'sanitize_callback' => 'esc_html',
-                    'type'              => 'control' );	
+                    'sanitize_callback' => 'wp_kses_post',
+                    'type'              => 'control' );
 $options[] = array ('title'             => __('Sidebar Position', 'dd_theme'),
                     'description'       => __('For pages with the sidebar in use, position the sidebar on the left or the right side of the content. This applies to the default template, and the blog single pages.', 'dd_theme'),
                     'section'           => 'dd_theme_options',
@@ -223,7 +223,7 @@ $options[] = array( 'title'             => __( 'Remove Disable AutoP', 'dd_theme
                     'type'              => 'control' );
 
 /* Footer Section --
-----------------------------------------------------------------------------------------------------*/			
+----------------------------------------------------------------------------------------------------*/
 
 $options[] = array( 'title'             => __( 'Footer Text', 'dd_theme' ),
                     'description'       => __( 'Footer Text', 'dd_theme' ),
@@ -244,10 +244,10 @@ $options[] = array( 'title'             => __( 'Footer Text', 'dd_theme' ),
 
 
 /* Footer Section --
-----------------------------------------------------------------------------------------------------*/		
+----------------------------------------------------------------------------------------------------*/
 
 /* Blog Section --
-----------------------------------------------------------------------------------------------------*/		
+----------------------------------------------------------------------------------------------------*/
 
 $default_blog = get_bloginfo( 'name' );
 
@@ -321,4 +321,4 @@ $options[] = array( 'title'             => __( 'Single Post Featured Image', 'dd
 
 
 /* Footer Section --
-----------------------------------------------------------------------------------------------------*/		
+----------------------------------------------------------------------------------------------------*/
