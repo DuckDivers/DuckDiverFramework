@@ -1,6 +1,6 @@
 <?php
 $slides = array();
-$args = array( 'post_type' => 'slider', 'orderby' => 'menu_order', 'order' => 'ASC', );
+$args = apply_filters('dd_filter_slider_args', array( 'post_type' => 'slider', 'orderby' => 'menu_order', 'order' => 'ASC' ));
 $slider_query = new WP_Query( $args );
 if ( $slider_query->have_posts() ) {
     while ( $slider_query->have_posts() ) {
