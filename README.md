@@ -19,16 +19,17 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 * 'dd_main_width' - Defaults to col-md-9 - in use in the sidebar position function.
 * 'dd_sidebar_width' - Defaults to col-md-3 - in use in the sidebar position function.
 * 'dd_slider_image_size' - defaults to 'slider-post-thumbnail' which is 2000 x 600
- 
-### Changelog
 
+### Changelog
+### 1.2.14
+* Make for PHP 7.4
 ### 1.2.9
 * Added dd_slider_image_size filter.
-* Added WC parent theme WC support on plugin activation.  Included basic WC functions in pluggable functions for child theme. 
+* Added WC parent theme WC support on plugin activation.  Included basic WC functions in pluggable functions for child theme.
 * Added WC Sidebar options to customizer.
 * Added extra mt-6 class - 4rem;
 
-### 1.2.7 
+### 1.2.7
 Remove Comment form from Page templates, add slider options to crossfade or slide.
 
 ### 1.2.6
@@ -43,9 +44,9 @@ Minor stylesheet revisions. Added CF7 Functions.
 ### Ver 1.2.0
 Update to Bootstrap 4.3.1, Include FB PAGE ID to open social widget links in Facebook App on IOS or Android.  Include class Mobile_Detect
 
-### Ver 1.1.6 
+### Ver 1.1.6
 Minor tweaks to TinyMCE Plugin to remove old shortcodes from Menu.  Added code for WC Cart.
-#### Ver 1.1.3 
+#### Ver 1.1.3
 Added to customer in theme options "Sidebar Position" - left, right, none
 #### Ver 1.1.2
 Added action hooks and ability to turn off slider and remove CPT from admin.
