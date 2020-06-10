@@ -179,14 +179,14 @@ if ( !function_exists('shortcode_carousel_owl') ) {
 							}
 
 							// post title
-							if ( !empty($post_title{0}) ) {
+							if ( !empty($post_title[0]) ) {
 								$output .= '<h5><a href="' . $post_permalink . '" title="' . $post_title_attr . '">';
 									$output .= $post_title;
 								$output .= '</a></h5>';
 							}
 
 							// post excerpt
-							if ( !empty($excerpt{0}) ) {
+							if ( !empty($excerpt[0]) ) {
 								$output .= $excerpt_count > 0 ? '<p class="excerpt">' . wp_trim_words( $excerpt, $excerpt_count ) . '</p>' : '';
 							}
 

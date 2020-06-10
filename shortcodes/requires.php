@@ -4,7 +4,7 @@
 //------------------------------------------------------
 if ( !function_exists('my_string_limit_words') ) {
 	function my_string_limit_words($string, $word_limit) {
-		if ( empty($string{0}) )
+		if ( empty($string[0]) )
 			return;
 
 		$words = explode( ' ', $string, ( $word_limit + 1 ) );
