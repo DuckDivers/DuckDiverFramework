@@ -141,11 +141,12 @@ $options[] = array( 'title'             => __( 'Search in Menu', 'dd_theme' ),
                     'option'            => 'checkbox',
                     'sanitize_callback' => '',
                     'type'              => 'control' );
+
 $options[] = array( 'title'             => __( 'Search in Header', 'dd_theme' ),
                     'description'       => __( 'Show the Search Box in the Header', 'dd_theme' ),
                     'section'           => 'dd_theme_options',
                     'id'                => 'header_search_toggle',
-					'default'			=> '',
+                    'default'			=> '',
                     'option'            => 'checkbox',
                     'sanitize_callback' => '',
                     'type'              => 'control' );
@@ -158,6 +159,16 @@ $options[] = array ('title'             => __( 'Global Messsage', 'dd_theme' ),
                     'option'            => 'textarea',
                     'sanitize_callback' => 'wp_kses_post',
                     'type'              => 'control' );
+
+$options[] = array( 'title'             => __( 'Exclude Fontawesome', 'dd_theme' ),
+                    'description'       => __( 'Check this box to Exclude Fontawesome', 'dd_theme' ),
+                    'section'           => 'dd_theme_options',
+                    'id'                => 'exclude_fontawesome',
+                    'default'			      => '',
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
+
 $options[] = array ('title'             => __('Sidebar Position', 'dd_theme'),
                     'description'       => __('For pages with the sidebar in use, position the sidebar on the left or the right side of the content. This applies to the default template, and the blog single pages.', 'dd_theme'),
                     'section'           => 'dd_theme_options',

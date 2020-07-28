@@ -1,8 +1,8 @@
-<?php 
+<?php
 // Require Extra Files and Functions
     require_once('lessc.inc.php');
     require_once('less-compile.php'); // Less Compiler
-    require_once('cpt-init.php'); 
+    require_once('cpt-init.php');
     require_once('dd-extra-widgets.php');
     require_once('aq_resizer.php'); // Aqua Resizer
     require_once(get_template_directory() . '/shortcodes/shortcodes.inc.php');
@@ -20,13 +20,15 @@ if (!class_exists('Mobile_Detect')) {
 if (in_array('woocommerce/woocommerce.php', get_option( 'active_plugins') ) ) require_once(get_template_directory() . '/inc/functions-woo.php'); // WooCommerce Functionality
 
 // Enqueue Custom Style from LessCompile
-function dd_enqueue_styles(){
+if (!function_exists('dd_enqueue_styles')){
+    function dd_enqueue_styles(){
         wp_enqueue_style('dd-custom-fonts', get_template_directory_uri() . '/css/duck.min.css');
-		if (!is_child_theme()){
-            wp_enqueue_style('dd-custom-style', get_template_directory_URI() . '/custom.css', array(), filemtime(get_template_directory() . '/custom.css'), false);
+    		if (!is_child_theme()){
+                wp_enqueue_style('dd-custom-style', get_template_directory_URI() . '/custom.css', array(), filemtime(get_template_directory() . '/custom.css'), false);
         }
+    }
+    add_action('wp_print_styles', 'dd_enqueue_styles', 99);
 }
-add_action('wp_print_styles', 'dd_enqueue_styles', 99);
 // Add Admin Style
 function load_custom_wp_admin_style() {
         wp_register_style( 'custom_wp_admin_css', get_template_directory_URI() . '/admin/admin.css', false, '1.0.0' );
@@ -70,17 +72,17 @@ function check_cf7_active(){
                 wp_dequeue_style( 'contact-form-7' );
             }
         }
-    add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );    
+    add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );
     }
 }
 add_action('admin_init', 'check_cf7_active');
 
 add_filter( 'body_class','dd_mobile_class' );
 function dd_mobile_class( $classes ) {
- 	
+
 	$detect = new Mobile_Detect;
 	$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'mobile') : 'desktop');
     $classes[] = 'is-' . $deviceType;
-     
-    return $classes;    
+
+    return $classes;
 }
