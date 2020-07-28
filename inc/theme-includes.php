@@ -22,21 +22,25 @@ if (in_array('woocommerce/woocommerce.php', get_option( 'active_plugins') ) ) re
 // Enqueue Custom Style from LessCompile
 if (!function_exists('dd_enqueue_styles')){
     function dd_enqueue_styles(){
-        wp_enqueue_style('dd-custom-fonts', get_template_directory_uri() . '/css/duck.min.css');
+		$icons_css = (get_theme_mod('exclude_fontawesome')) ? '/css/duck-no-fontawesome.min.css' : '/css/duck.min.css';
+        wp_enqueue_style('dd-custom-fonts', get_template_directory_uri() . $icons_css);
     		if (!is_child_theme()){
                 wp_enqueue_style('dd-custom-style', get_template_directory_URI() . '/custom.css', array(), filemtime(get_template_directory() . '/custom.css'), false);
         }
     }
     add_action('wp_print_styles', 'dd_enqueue_styles', 99);
 }
+
 // Add Admin Style
-function load_custom_wp_admin_style() {
-        wp_register_style( 'custom_wp_admin_css', get_template_directory_URI() . '/admin/admin.css', false, '1.0.0' );
-        wp_enqueue_style( 'custom_wp_admin_css' );
-        wp_register_style( 'duck-fonts', get_template_directory_URI() . '/css/duck.min.css', false, '1.0.0' );
-        wp_enqueue_style('duck-fonts');
+if (!function_exists('load_custom_wp_admin_style')){
+	function load_custom_wp_admin_style() {
+			wp_register_style( 'custom_wp_admin_css', get_template_directory_URI() . '/admin/admin.css', false, '1.0.0' );
+			wp_enqueue_style( 'custom_wp_admin_css' );
+			wp_register_style( 'duck-fonts', get_template_directory_URI() . '/css/duck.min.css', false, '1.0.0' );
+			wp_enqueue_style('duck-fonts');
+	}
+	add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 }
-add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
 // Add Custom Image Sizes
 if (!function_exists('dd_custom_image_sizes')){
