@@ -5,7 +5,7 @@
 	}, function() {
 	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
 	});
-	
+
 
 // ---------------------------------------------------------
 // Back to Top
@@ -29,7 +29,7 @@
 		return false;
 	});
 
-// WooCommerce 
+// WooCommerce
 // Magnific Popup Init
 $(document).ready(function() {	 // Document Ready
 	$('.duck-lightbox, .attachment-shop_single').parent().addClass('image-popup-fit-width');
@@ -63,15 +63,6 @@ $(document).ready(function() {	 // Document Ready
 	$('.widget_shopping_cart_content').slideDown(300);
 		}
 	});
-    	//Fix contact form not valid messages errors
-        jQuery('.wpcf7-not-valid-tip').on('mouseover', function(){
-            jQuery(this).fadeOut();
-            jQuery('.wpcf7-not-valid').removeClass('.wpcf7-not-valid');
-        });
-
-        jQuery('.wpcf7-form input[type="reset"]').on('click', function(){
-            jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
-        });					
 })( jQuery );
 // Prevent Multiple Clicks on Contact Form 7 Submissions
 jQuery(document).on('click', '.wpcf7-submit', function(e){
@@ -79,4 +70,18 @@ jQuery(document).on('click', '.wpcf7-submit', function(e){
           e.preventDefault();
           return false;
      }
+});
+// Contact Form 7 Error Class
+jQuery(document).bind('ready, ajaxcomplete', function() {
+	jQuery('.wpcf7-not-valid-tip').on('mouseover', function(){
+	    jQuery(this).fadeOut();
+	    jQuery('.wpcf7-not-valid').removeClass('.wpcf7-not-valid');
+	});
+	jQuery('.wpcf7-not-valid').focus(function(){
+		jQuery(this).removeClass('wpcf7-not-valid');
+		jQuery(this).next('.wpcf7-not-valid-tip').fadeOut();
+	});
+	jQuery('.wpcf7-form input[type="reset"]').on('click', function(){
+	  jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
+	});
 });
