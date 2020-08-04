@@ -72,16 +72,16 @@ jQuery(document).on('click', '.wpcf7-submit', function(e){
      }
 });
 // Contact Form 7 Error Class
-jQuery(document).bind('ready, ajaxcomplete', function() {
+jQuery(document).ajaxComplete(function() {
 	jQuery('.wpcf7-not-valid-tip').on('mouseover', function(){
 	    jQuery(this).fadeOut();
 	    jQuery('.wpcf7-not-valid').removeClass('.wpcf7-not-valid');
 	});
 	jQuery('.wpcf7-not-valid').focus(function(){
-		jQuery(this).removeClass('wpcf7-not-valid');
-		jQuery(this).next('.wpcf7-not-valid-tip').fadeOut();
+			jQuery(this).removeClass('wpcf7-not-valid');
+			jQuery(this).next('.wpcf7-not-valid-tip').fadeOut();
 	});
 	jQuery('.wpcf7-form input[type="reset"]').on('click', function(){
-	  jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
-	});
+	    jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
+	});			
 });
