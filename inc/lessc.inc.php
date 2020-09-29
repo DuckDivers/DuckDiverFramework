@@ -1,9 +1,9 @@
 <?php
 
 /**
- * lessphp v0.5.0
+ * lessphp v0.5.1
  * http://leafo.net/lessphp
- *
+ * Updated for PHP 7.4 by Howard Ehrenberg
  * LESS CSS compiler, adapted from http://lesscss.org
  *
  * Copyright 2013, Leaf Corcoran <leafot@gmail.com>
@@ -2363,12 +2363,14 @@ class lessc_parser {
 		if ($this->count != strlen($this->buffer))
 			$this->throwError();
 
-		// TODO report where the block was opened
-		if ( !property_exists($this->env, 'parent') || !is_null($this->env->parent) )
-			throw new exception('parse error: unclosed block');
+		// Report end of last parsed group
+		if ( !property_exists($this->env, 'parent') || !is_null($this->env->parent) ) {
+            $last_parsed = ($this->env->children[0]);
+						throw new exception('parse error: unclosed block near: ' . array_key_first($last_parsed));
+        }
 
 		return $this->env;
-	}
+
 
 	/**
 	 * Parse a single chunk off the head of the buffer and append it to the

@@ -93,6 +93,7 @@ if (!function_exists('custom_woocommerce_page_title')){
       if( $page_title == 'Shop' ) {
         return get_theme_mod('dd_shop_title');
       }
+      else return $page_title;
     }
     add_filter( 'woocommerce_page_title', 'custom_woocommerce_page_title');
 }
