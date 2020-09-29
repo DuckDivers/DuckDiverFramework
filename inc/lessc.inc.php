@@ -2370,7 +2370,7 @@ class lessc_parser {
         }
 
 		return $this->env;
-
+	}
 
 	/**
 	 * Parse a single chunk off the head of the buffer and append it to the
