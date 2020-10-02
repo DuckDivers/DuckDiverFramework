@@ -305,8 +305,8 @@ function bootstrap_img_caption_shortcode( $output, $attr, $content )  {
 
     if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
 
-    return '<div ' . $id . 'class="thumbnail ' . esc_attr($align) . '">'
-        . do_shortcode( $content ) . '<div class="caption">' . $caption . '</div></div>';
+    return '<div ' . $id . 'class="thumbnail ' . esc_attr($align) . '" style="width: '.$width.'px">'
+		        . do_shortcode( $content ) . '<div class="caption">' . $caption . '</div></div>';
 }
 
 /**
