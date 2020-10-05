@@ -62,7 +62,7 @@ if ( ! function_exists( 'wpex_mce_text_sizes' ) ) {
         $initArray['fontsize_formats'] = "9px 10px 12px 13px 14px 16px 18px 21px 24px 28px 32px 36px";
         return $initArray;
     }
-    add_filter( 'tiny_mce_before_init', 'wpex_mce_text_sizes' ); 
+    add_filter( 'tiny_mce_before_init', 'wpex_mce_text_sizes' );
 }
 
 
@@ -85,3 +85,42 @@ function add_slider_to_homepage(){
 	<?php echo ob_get_clean();
 }
 add_action('dd_homepage_scripts', 'add_slider_to_homepage', 5);
+
+// Add Google Rich Snippets to FAQ page
+add_action('wp_head', 'add_faq_schema_markup');
+if (!function_exists('add_faq_schema_markup')){
+    function add_faq_schema_markup(){
+        global $post;
+        if(get_page_template_slug( $post->ID ) == 'page-faq.php'){
+
+            $args = array(
+                'post_type'        	=> 'faq',
+                'posts_per_page'    => -1,
+            );
+            $faq_query = new WP_Query( $args );
+            if ( $faq_query->have_posts() ) :
+                echo '<script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": ';
+                $json_array = array();
+                while ( $faq_query->have_posts() ) : $faq_query->the_post();
+                    // The Loop
+                    $question = get_the_title();
+                    $answer = apply_filters('the_content', get_the_content());
+                    $json_array[] = array(
+                        "@type" => "Question",
+                        "name" => $question,
+                        "acceptedAnswer" => array(
+                            "@type" => "Answer",
+                            "text" => $answer),
+                    );
+
+                endwhile;
+                echo json_encode($json_array);
+                echo '}</script>';
+            endif;
+        }
+    }
+}
