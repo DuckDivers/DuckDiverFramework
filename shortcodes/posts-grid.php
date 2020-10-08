@@ -125,6 +125,8 @@ if (!function_exists('posts_grid_shortcode')) {
 				$attachment_url = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), 'full' );
 				$url            = $attachment_url['0'];
 				$image          = aq_resize($url, $thumb_width, $thumb_height, true);
+				// Make sure that $image is returned if it's too small.
+				$image = ($image == FALSE) ? $url : $image;
 				$mediaType      = get_post_meta($post_id, 'tz_portfolio_type', true);
 				$prettyType     = 0;
 
