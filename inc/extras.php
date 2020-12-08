@@ -91,6 +91,7 @@ add_action('wp_head', 'add_faq_schema_markup');
 if (!function_exists('add_faq_schema_markup')){
     function add_faq_schema_markup(){
         global $post;
+				if (!$post || $post->post_type !== 'faq') return;
         if(get_page_template_slug( $post->ID ) == 'page-faq.php'){
 
             $args = array(
