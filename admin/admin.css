@@ -25,3 +25,7 @@ ul.dd_home_widget a.button {
 .jitm-card {
     display: none !important;
 }
+/* Advanced bootstrap blocks */
+#editor .wp-block[data-type="advanced-bootstrap-blocks/row"] {
+    margin: 0 auto;
+}

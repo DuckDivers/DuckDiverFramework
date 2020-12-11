@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* Slider */
 function my_post_type_slider() {
@@ -21,7 +21,7 @@ function my_post_type_slider() {
 			'supports'  => array(
 								'title',
 								'thumbnail',
-								
+
 							)
 		)
 	);
@@ -89,6 +89,11 @@ class dd_slider_meta {
 	}
 
 	public function save_metabox( $post_id, $post ) {
+
+		if ($post && $post->post_type != 'slider') {
+			return;
+		}
+
 		// Sanitize user input.
 		$slider_new_caption = isset( $_POST[ 'slider_caption' ] ) ? wp_kses_post( $_POST[ 'slider_caption' ] ) : '';
 		$slider_new_link = isset( $_POST[ 'slider_link' ] ) ? esc_url( $_POST[ 'slider_link' ] ) : '';
@@ -179,7 +184,7 @@ function phi_post_type_faq() {
 }
 add_action('init', 'phi_post_type_faq');
 
-/* ADD Featured image to CPT 
+/* ADD Featured image to CPT
 ========================================================*/
 
 // GET FEATURED IMAGE
@@ -195,7 +200,7 @@ function DD_CPT_columns_head($defaults) {
     $defaults['featured_image'] = 'Image';
     return $defaults;
 }
- 
+
 // SHOW THE FEATURED IMAGE
 function DD_CPT_columns_content($column_name, $post_ID) {
     if ($column_name == 'featured_image') {

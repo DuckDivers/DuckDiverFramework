@@ -4,7 +4,7 @@ Theme URI: https://www.duckdiverllc.com
 Author: Howard E / Duck Diver, LLC
 Author URI: https://www.howardehrenberg.com
 Description: Duck Diver Framework for building themes based on Twitter Bootstrap 4.0.0
-Version: 1.2.18
+Version: 1.2.19
 License: GNU General Public License
 License URI: license.txt
 Tags: bootstrap, _s, _strap, DuckDiver Framework
@@ -10626,4 +10626,10 @@ header#masthead {
 
 #dd-carousel img {
     width: 100%
+}
+
+figure.wp-block-image.d-block.mx-auto img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
