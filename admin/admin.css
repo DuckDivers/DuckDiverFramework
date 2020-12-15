@@ -26,6 +26,6 @@ ul.dd_home_widget a.button {
     display: none !important;
 }
 /* Advanced bootstrap blocks */
-#editor .wp-block[data-type="advanced-bootstrap-blocks/row"] {
-    margin: 0 auto;
+#editor .wp-block[data-type="advanced-bootstrap-blocks/row"], #editor .wp-block[data-type="advanced-bootstrap-blocks/container"] {
+  margin: 0 auto;
 }
