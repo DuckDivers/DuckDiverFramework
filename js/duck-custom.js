@@ -1,6 +1,6 @@
 (function($) {
 "use strict";
-	$('ul.nav li.dropdown').hover(function() {
+	$('ul.nav li.dropdown').on('hover',function() {
 	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
 	}, function() {
 	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
@@ -10,7 +10,7 @@
 // ---------------------------------------------------------
 // Back to Top
 // ---------------------------------------------------------
-	jQuery(window).scroll(function () {
+	jQuery(window).on('scroll', function () {
 		if (jQuery(this).scrollTop() > 100) {
 			jQuery('#back-top').fadeIn('fast', function(){
 				clearTimeout(jQuery.data(this, 'scrollTimer'));
@@ -22,7 +22,7 @@
 			jQuery('#back-top').fadeOut();
 		}
 	});
-	jQuery('#back-top a').click(function () {
+	jQuery('#back-top a').on('click', function () {
 		jQuery('body,html').stop(false, false).animate({
 			scrollTop: 0
 		}, 800);
@@ -54,7 +54,7 @@ $(document).ready(function() {	 // Document Ready
 	});
 
 	//Dropdown cart in header
-	$('.cart-holder').click(function(){
+	$('.cart-holder').on('click', function(){
 		if($(this).hasClass('cart-opened')) {
 			$(this).removeClass('cart-opened');
 	$('.widget_shopping_cart_content').slideUp(300);
@@ -77,7 +77,7 @@ jQuery(document).ajaxComplete(function() {
 	    jQuery(this).fadeOut();
 	    jQuery('.wpcf7-not-valid').removeClass('.wpcf7-not-valid');
 	});
-	jQuery('.wpcf7-not-valid').focus(function(){
+	jQuery('.wpcf7-not-valid').on('focus', function(){
 			jQuery(this).removeClass('wpcf7-not-valid');
 			jQuery(this).next('.wpcf7-not-valid-tip').fadeOut();
 	});

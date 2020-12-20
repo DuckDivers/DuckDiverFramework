@@ -32,7 +32,7 @@ get_header(); ?>
 
                 <?php endwhile; ?>
 
-                <?php the_posts_navigation(); ?>
+                <?php understrap_pagination(); ?>
 
             <?php else : ?>
 
@@ -46,6 +46,6 @@ get_header(); ?>
                 <?php get_sidebar();?>
             </aside>
         <?php endif;?>
-    </div>   
+    </div>
 </div>
 <?php get_footer(); ?>
