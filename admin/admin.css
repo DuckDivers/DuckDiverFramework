@@ -22,7 +22,7 @@ ul.dd_home_widget a.button {
     margin-top: 1em;
 }
 /* Hide Jetpack Nag */
-.jitm-card {
+.jitm-card, .notice.wcs-nux__notice {
     display: none !important;
 }
 /* Advanced bootstrap blocks */

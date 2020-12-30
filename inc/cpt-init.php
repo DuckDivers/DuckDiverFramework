@@ -9,7 +9,7 @@ function my_post_type_slider() {
 			'_builtin'            => false,
 			'exclude_from_search' => true, // Exclude from Search Results
 			'capability_type'     => 'page',
-			'public'              => true,
+			'public'              => false,
 			'show_ui'             => true,
 			'show_in_nav_menus'   => false,
 			'rewrite' => array(
@@ -129,7 +129,7 @@ function my_post_type_header_image() {
 		array(
 			'labels'             => $labels,
 			'_builtin'          => false,
-			'public'            => true,
+			'public'            => false,
 			'show_ui'           => true,
 			'show_in_nav_menus' => true,
 			'menu_position'		=> 4,
@@ -151,7 +151,7 @@ function phi_post_type_faq() {
 		array(
 			'label'               => __("FAQs"),
 			'singular_label'      => __("FAQs"),
-			'public'              => false,
+			'public'              => true,
 			'show_ui'             => true,
 			'_builtin'            => false, // It's a custom post type, not built in
 			'_edit_link'          => 'post.php?post=%d',

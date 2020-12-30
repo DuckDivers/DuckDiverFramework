@@ -66,23 +66,25 @@ if ( ! function_exists( 'wpex_mce_text_sizes' ) ) {
 }
 
 
-function add_slider_to_homepage(){
-	if (get_theme_mod('dd_slider_active')) {
-			$delay = get_theme_mod('dd_slider_delay'); }
-		else {
-			$delay = 'false';
-		}
-	ob_start(); ?>
+if (!function_exists('add_slider_to_homepage')) {
+    function add_slider_to_homepage() {
+        if (get_theme_mod('dd_slider_active')) {
+            $delay = get_theme_mod('dd_slider_delay');
+        } else {
+            $delay = 'false';
+        }
+        ob_start(); ?>
 
-	<script type="text/javascript">
-		// Carousel Init
-		jQuery( document ).ready( function ( $ ) {
-			$( '.carousel' ).carousel( {
-				interval: <?php echo $delay;?>
-			} );
-		} );
-	</script>
-	<?php echo ob_get_clean();
+        <script type="text/javascript">
+            // Carousel Init
+            jQuery(document).ready(function ($) {
+                $('.carousel').carousel({
+                    interval: <?php echo $delay;?>
+                });
+            });
+        </script>
+        <?php echo ob_get_clean();
+    }
 }
 add_action('dd_homepage_scripts', 'add_slider_to_homepage', 5);
 
@@ -91,9 +93,8 @@ add_action('wp_head', 'add_faq_schema_markup');
 if (!function_exists('add_faq_schema_markup')){
     function add_faq_schema_markup(){
         global $post;
-				if (!$post || $post->post_type !== 'faq') return;
-        if(get_page_template_slug( $post->ID ) == 'page-faq.php'){
-
+        if ( !$post ) return;
+        if( get_page_template_slug( $post->ID ) === 'page-faq.php' ){
             $args = array(
                 'post_type'        	=> 'faq',
                 'posts_per_page'    => -1,

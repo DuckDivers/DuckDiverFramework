@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494a64dd-46b2-4219-8bcf-84f4c64c1a7c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DuckDiverFramework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DuckDiverFramework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/duck-custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/duck-custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="494a64dd-46b2-4219-8bcf-84f4c64c1a7c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,8 +54,16 @@
       <option name="presentableId" value="Default" />
       <updated>1606687592078</updated>
       <workItem from="1606687593210" duration="153000" />
-      <workItem from="1608475700330" duration="5137000" />
+      <workItem from="1608475700330" duration="5197000" />
     </task>
+    <task id="LOCAL-00001" summary="Remove deprecated jquery">
+      <created>1608496655306</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608496655306</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,6 +80,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove deprecated jquery" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove deprecated jquery" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

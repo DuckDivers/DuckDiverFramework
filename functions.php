@@ -98,7 +98,7 @@ add_action( 'after_setup_theme', 'dd_theme_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-if (!function_exists('dd_theme_widgets_init')) : 
+if (!function_exists('dd_theme_widgets_init')) :
     function dd_theme_widgets_init() {
         register_sidebar( array(
             'name'          => esc_html__( 'Sidebar', 'dd_theme' ),
@@ -117,6 +117,7 @@ endif;
  * Enqueue scripts and styles.
  */
 function dd_theme_scripts() {
+	
 	wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/style.min.css' );
 
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
