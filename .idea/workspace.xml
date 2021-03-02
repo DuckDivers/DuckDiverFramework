@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00376a44-ac26-43f5-9538-7875836bca84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DuckDiverFramework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DuckDiverFramework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/shortcodes/dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/shortcodes/dialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/functions-strap.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions-strap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/duck-custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/duck-custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/duck-custom.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/duck-custom.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template-parts/content-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/content-page.php" afterDir="false" />
-    </list>
+    <list default="true" id="00376a44-ac26-43f5-9538-7875836bca84" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,12 +46,23 @@
       <option name="presentableId" value="Default" />
       <updated>1614724225687</updated>
       <workItem from="1614724227505" duration="417000" />
-      <workItem from="1614724712283" duration="50000" />
+      <workItem from="1614724712283" duration="202000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>C:\Users\howar\Dropbox\Dreamweaver\wordpress</wordpressPath>
