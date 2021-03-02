@@ -5,10 +5,10 @@ var shortcode_generator_url = plugin_data.url + '/admin/shortcodes/',
 		needsPreview: false,
 		setUpButtons: function(){
 			var a = this;
-			jQuery("#cancel-button").click(function(){
+			jQuery("#cancel-button").on('click' , function(){
 				a.closeDialog()
 			});
-			jQuery("#insert-button").click(function(){
+			jQuery("#insert-button").on('click', function(){
 				a.insertAction()
 			});
 		},
@@ -134,7 +134,7 @@ var shortcode_generator_url = plugin_data.url + '/admin/shortcodes/',
 		}
 
 		var h = this;
-		b.find("#" + g).bind("keydown focusout", function (e) {
+		b.find("#" + g).on("keydown focusout", function (e) {
 		})
 
 	},
@@ -156,7 +156,7 @@ var shortcode_generator_url = plugin_data.url + '/admin/shortcodes/',
 		}
 
 		var h = this;
-		b.find("#" + g).bind("keydown focusout", function (e) {
+		b.find("#" + g).on("keydown focusout", function (e) {
 		})
 
 	},

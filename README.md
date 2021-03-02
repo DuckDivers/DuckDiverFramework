@@ -21,6 +21,10 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 * 'dd_slider_image_size' - defaults to 'slider-post-thumbnail' which is 2000 x 600
 
 ### Changelog
+
+== 1.2.22 ==
+* Make functions-strap.php pluggable
+
 ### 1.2.14
 * Make for PHP 7.4
 ### 1.2.9

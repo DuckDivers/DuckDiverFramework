@@ -1,9 +1,9 @@
 (function($) {
 "use strict";
-	$('ul.nav li.dropdown').on('hover',function() {
-	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-	}, function() {
-	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+	$('ul.navbar-nav li.dropdown').on('mouseenter', function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(500);
+	}).on('mouseleave', function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(500);
 	});
 
 
@@ -83,5 +83,5 @@ jQuery(document).ajaxComplete(function() {
 	});
 	jQuery('.wpcf7-form input[type="reset"]').on('click', function(){
 	    jQuery('.wpcf7-not-valid-tip, .wpcf7-response-output').fadeOut();
-	});			
+	});
 });

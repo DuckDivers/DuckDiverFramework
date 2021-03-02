@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494a64dd-46b2-4219-8bcf-84f4c64c1a7c" name="Default Changelist" comment="" />
+    <list default="true" id="00376a44-ac26-43f5-9538-7875836bca84" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/DuckDiverFramework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DuckDiverFramework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/shortcodes/dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/shortcodes/dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/functions-strap.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions-strap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/duck-custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/duck-custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/duck-custom.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/duck-custom.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/content-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/content-page.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,62 +29,48 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="DrupalConfiguration">
+    <drupalPath />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1kyzP654W025yQsalD1SpuDqqV0" />
+  <component name="JoomlaConfiguration">
+    <joomlaConfigPath />
+    <joomlaPath />
+  </component>
+  <component name="ProjectId" id="1pDinBlWNEAimrFvRYXO9XdvekO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="494a64dd-46b2-4219-8bcf-84f4c64c1a7c" name="Default Changelist" comment="" />
-      <created>1606687592078</created>
+      <changelist id="00376a44-ac26-43f5-9538-7875836bca84" name="Default Changelist" comment="" />
+      <created>1614724225687</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1606687592078</updated>
-      <workItem from="1606687593210" duration="153000" />
-      <workItem from="1608475700330" duration="5197000" />
+      <updated>1614724225687</updated>
+      <workItem from="1614724227505" duration="417000" />
+      <workItem from="1614724712283" duration="50000" />
     </task>
-    <task id="LOCAL-00001" summary="Remove deprecated jquery">
-      <created>1608496655306</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1608496655306</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove deprecated jquery" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove deprecated jquery" />
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>C:\Users\howar\Dropbox\Dreamweaver\wordpress</wordpressPath>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
