@@ -58,11 +58,5 @@ dw_php_codehinting.config
 custom.less.cache
 *.cache
 
-.idea/codeStyles/codeStyleConfig.xml
-.idea/codeStyles/codeStyleConfig.xml
-.idea/deployment.xml
-.idea/jsLibraryMappings.xml
-.idea/DuckDiverFramework.iml
-.idea/php.xml
-.idea/workspace.xml
-.idea/workspace.xml
+.idea
+*.iml
