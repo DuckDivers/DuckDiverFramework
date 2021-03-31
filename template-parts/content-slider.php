@@ -38,7 +38,8 @@ wp_reset_postdata();
             <?php endif; ?>
             <div class="carousel-inner" role="listbox">
                 <?php $i=0; foreach($slides as $slide) { extract($slide); ?>
-                <div class="carousel-item <?php if($i == 0) { ?>active<?php } ?>"> <a href="<?php echo $link; ?>" class="carousel-item-image-link"><img src="<?php echo $image ?>" alt="<?php echo esc_attr($title); ?>">
+                <div class="carousel-item <?php if($i == 0) { ?>active<?php } ?>"> <a href="<?php echo $link; ?>" class="carousel-item-image-link">
+                  <img src="<?php echo $image ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy">
                     <div class="carousel-caption">
                         <p>
                             <?php echo $excerpt; ?>
