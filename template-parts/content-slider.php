@@ -38,14 +38,18 @@ wp_reset_postdata();
             <?php endif; ?>
             <div class="carousel-inner" role="listbox">
                 <?php $i=0; foreach($slides as $slide) { extract($slide); ?>
-                <div class="carousel-item <?php if($i == 0) { ?>active<?php } ?>"> <a href="<?php echo $link; ?>" class="carousel-item-image-link">
-                  <img src="<?php echo $image ?>" alt="<?php echo esc_attr($title); ?>">
-                    <div class="carousel-caption">
-                        <p>
-                            <?php echo $excerpt; ?>
-                            </p>
-                        </div></a>
-                    </div>
+                <div class="carousel-item <?php if($i == 0) { ?>active<?php } ?>">
+                  <a href="<?php echo $link; ?>" class="carousel-item-image-link">
+                    <?php if ($i <= 1) :?>
+                        <img src="<?php echo $image ?>" alt="<?php echo esc_attr($title); ?>" class="d-block w-100">
+                    <?php else: ?>
+                        <img data-src="<?php echo $image ?>" alt="<?php echo esc_attr($title); ?>" class="d-block w-100">
+                    <?php endif;?>
+                      <div class="carousel-caption">
+                            <p><?php echo $excerpt; ?></p>
+                      </div>
+                  </a>
+                </div>
                 <?php $i++; } ?>
                 </div>
             <a class="carousel-control-prev" href="#dd-carousel" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a> <a class="carousel-control-next" href="#dd-carousel" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>

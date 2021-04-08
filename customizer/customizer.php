@@ -100,6 +100,15 @@ $options[] = array( 'title'             => __( 'Slider Navs', 'dd_theme' ),
                     'sanitize_callback' => '',
                     'type'              => 'control' );
 
+$options[] = array( 'title'             => __( 'Lazy Load', 'dd_theme' ),
+                    'description'       => __('Check box for Lazy Load'),
+                    'section'           => 'theme_slider_options',
+                    'id'                => 'dd_slider_lazy',
+                    'default'           => '1', // 1 for checked
+                    'option'            => 'checkbox',
+                    'sanitize_callback' => '',
+                    'type'              => 'control' );
+
 $options[] = array( 'title'             => __( 'Slider Transition', 'dd_theme' ),
                     'description'       => 'What type of transition between slides',
                     'section'           => 'theme_slider_options',

@@ -74,13 +74,21 @@ if (!function_exists('add_slider_to_homepage')) {
             $delay = 'false';
         }
         ob_start(); ?>
-
         <script type="text/javascript">
             // Carousel Init
-            jQuery(document).ready(function ($) {
+            jQuery(function ($) {
                 $('.carousel').carousel({
                     interval: <?php echo $delay;?>
                 });
+                <?php if ( get_theme_mod('dd_slider_lazy') !== false ) : ?>
+                $('.carousel').on('slide.bs.carousel', function (event) {
+                    let target_div = event.relatedTarget;
+                    let target = $(target_div).next('.carousel-item').find('img').data('src');
+                    if (target) {
+                        $(target_div).next('.carousel-item').find('img').prop('src', target);
+                    }
+                });
+                <?php endif;?>
             });
         </script>
         <?php echo ob_get_clean();
