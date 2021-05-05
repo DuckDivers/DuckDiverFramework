@@ -90,7 +90,7 @@ class dd_slider_meta {
 
 	public function save_metabox( $post_id, $post ) {
 
-		if ($post && $post->post_type != 'slider') {
+		if ($post && $post->post_type !== 'slider') {
 			return;
 		}
 
