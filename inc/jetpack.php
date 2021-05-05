@@ -11,20 +11,7 @@
  * Jetpack setup function.
  *
  * See: https://jetpack.me/support/infinite-scroll/
- * See: https://jetpack.me/support/responsive-videos/
  */
-function dd_theme_jetpack_setup() {
-	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'dd_theme_infinite_scroll_render',
-		'footer'    => 'page',
-	) );
-
-	// Add theme support for Responsive Videos.
-	add_theme_support( 'jetpack-responsive-videos' );
-} // end function dd_theme_jetpack_setup
-add_action( 'after_setup_theme', 'dd_theme_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
