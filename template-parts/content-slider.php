@@ -11,7 +11,7 @@ if ( $slider_query->have_posts() ) {
             $thumb_url_array = wp_get_attachment_image_src( $thumb_id, apply_filters('dd_slider_image_size', 'slider-post-thumbnail'), true );
             $thumb_url = $thumb_url_array[ 0 ];
             $temp[ 'title' ] = get_the_title();
-            $temp[ 'excerpt' ] = get_post_meta( $post->ID, 'slider_caption', true );
+            $temp[ 'excerpt' ] = apply_filters('the_content', get_post_meta( $post->ID, 'slider_caption', true ));
             $temp[ 'image' ] = $thumb_url;
             $temp[ 'link' ] = get_post_meta( $post->ID, 'slider_link', true );
             $slides[] = $temp;

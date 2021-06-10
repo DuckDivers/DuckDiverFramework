@@ -5,13 +5,13 @@ class Duck_Social_Widget extends WP_Widget {
 function __construct() {
 parent::__construct(
 // Base ID of your widget
-'Duck_Social_Widget', 
+'Duck_Social_Widget',
 
 // Widget name will appear in UI
-__('Duck Diver - Social Networks', 'duck_widget_domain'), 
+__('Duck Diver - Social Networks', 'duck_widget_domain'),
 
 // Widget description
-array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_domain' ), ) 
+array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_domain' ), )
 );
 }
 
@@ -49,7 +49,7 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 		$networks['Vimeo']['label']		= $instance['vimeo_label'];
 		$networks['Tumblr']['label']	= $instance['tumblr_label'];
 
-	
+
 		$display = $instance['display'];
 
 		echo $before_widget;
@@ -57,18 +57,18 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 			echo $before_title;
 				echo $title;
 			echo $after_title;
-		} 
+		}
 		?>
-		
+
 		<!-- BEGIN SOCIAL NETWORKS -->
 		<?php if ($display == "both" or $display =="labels") {
 			$addClass = "social__list";
-		} elseif ($display == "icons") { 
+		} elseif ($display == "icons") {
 			$addClass = "social__row clearfix";
 		} ?>
-		
+
 		<ul class="social <?php echo $addClass ?> list-unstyled">
-			
+
 		<?php foreach(array("Facebook", "Twitter", "Flickr", "Rss", "Pinterest", "Instagram", "Linkedin", "Google", "Vimeo", "Youtube", "Tumblr") as $network) : ?>
 			<?php
 			if ($network === "Facebook"){
@@ -77,32 +77,32 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 				 *
 				 * @since    1.2.0
 				 */
-	
+
 				$detect = new Mobile_Detect;
 				if( $detect->isMobile() && !empty($networks['Facebook']['appid'])) {
                     if ( $detect->isAndroidOS() ) {
                         $link = 'fb://page/'.$networks['Facebook']['appid'].'?referrer=app_link';
                     } else {
-                        $link = 'fb://page/?id='.$networks['Facebook']['appid'];       
+                        $link = 'fb://page/?id='.$networks['Facebook']['appid'];
                     }
                 }
                 else {
                     $link = $networks['Facebook']['link'];
                 }
-			
+
 			} ?>
 			<?php if (!empty($networks[$network]['link'])) : ?>
 			<li class="social_li">
-				<a class="social_link social_link__<?php echo strtolower($network); ?>" rel="tooltip" data-original-title="<?php echo strtolower($network); ?>" target="_blank" href="<?php echo ($network==="Facebook") ? $link : $networks[$network]['link']; ?>">
-					<?php if (($display == "both") or ($display =="icons")) { 
+				<a class="social_link social_link__<?php echo strtolower($network); ?>" rel="tooltip noopener" data-original-title="<?php echo strtolower($network); ?>" target="_blank" href="<?php echo ($network==="Facebook") ? $link : $networks[$network]['link']; ?>">
+					<?php if (($display == "both") or ($display =="icons")) {
 							if ($network == "Google") { ?>
 								<span class="social_ico"><i class="fa fa-google-plus"></i></span>
 							<?php } elseif ($network == "Vimeo") {?>
-                            	<span class="social_ico"><i class="fa fa-vimeo-square"></i></span> 
+                            	<span class="social_ico"><i class="fa fa-vimeo-square"></i></span>
 							<?php } else { ?>
 								<span class="social_ico"><i class="fa fa-<?php echo strtolower($network);?>"></i></span>
 							<?php }
-						} if (($display == "labels") or ($display == "both")) { ?> 
+						} if (($display == "labels") or ($display == "both")) { ?>
 						<span class="social_label"><?php if (($networks[$network]['label'])!=="") { echo $networks[$network]['label']; } else { echo $network; } ?></span>
 					<?php } ?>
 				</a>
@@ -159,10 +159,10 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 
 		<p><label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook URL', 'text_domain') ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id('facebook'); ?>" name="<?php echo $this->get_field_name('facebook'); ?>" type="text" value="<?php echo esc_attr($facebook); ?>" /></p>
-        
+
         <p><label for="<?php echo $this->get_field_id('facebookID'); ?>"><?php _e('Facebook Page ID', 'text_domain') ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id('facebookID'); ?>" name="<?php echo $this->get_field_name('facebookID'); ?>" type="text" value="<?php echo esc_attr($facebookID); ?>" /></p>
-    
+
 		<p><label for="<?php echo $this->get_field_id('facebook_label'); ?>"><?php _e('Facebook label', 'text_domain') ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id('facebook_label'); ?>" name="<?php echo $this->get_field_name('facebook_label'); ?>" type="text" value="<?php echo esc_attr($facebook_label); ?>" /></p>
 	</fieldset>
@@ -182,8 +182,8 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 	<p><label for="<?php echo $this->get_field_id('flickr_label'); ?>"><?php _e('Flickr label', 'text_domain') ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id('flickr_label'); ?>" name="<?php echo $this->get_field_name('flickr_label'); ?>" type="text" value="<?php echo esc_attr($flickr_label); ?>" /></p>
 	</fieldset>
-    
-    
+
+
 	<fieldset style="border:1px solid #dfdfdf; padding:10px 10px 0; margin-bottom:1em;">
 		<legend style="padding:0 5px;"><?php _e('Pinterest', 'text_domain'); ?>:</legend>
 	<p><label for="<?php echo $this->get_field_id('pinterest'); ?>"><?php _e('Pinterest URL', 'text_domain'); ?>:</label>
@@ -247,7 +247,7 @@ array( 'description' => __( 'Duck Diver Links to your Networks', 'duck_widget_do
 			<input class="widefat" id="<?php echo $this->get_field_id('tumblr_label'); ?>" name="<?php echo $this->get_field_name('tumblr_label'); ?>" type="text" value="<?php echo esc_attr($tumblr_label); ?>" />
 		</p>
 	</fieldset>
-    
+
     <fieldset style="border:1px solid #dfdfdf; padding:10px 10px 0; margin-bottom:1em;">
 		<legend style="padding:0 5px;"><?php _e('Vimeo', 'text_domain'); ?>:</legend>
 		<p>
