@@ -11,10 +11,10 @@
 	include_once ('toggle.php');
 	include_once ('html.php');
 	include_once ('misc.php');
-	include_once ('service-box.php');
+	//include_once ('service-box.php');
 	include_once ('post-cycle.php');
 	include_once ('carousel.php');
-	include_once ('carousel-owl.php');
+	//include_once ('carousel-owl.php');
 	include_once ('progressbar.php');
 	include_once ('banner.php');
 	include_once ('table.php');
@@ -23,5 +23,5 @@
 	include_once ('categories.php');
 	include_once ('pricing-tables.php');
 	include_once ('true-toggle.php');
-    include_once ('requires.php');
-    include_once ('quacky.php');
+  include_once ('requires.php');
+  include_once ('quacky.php');

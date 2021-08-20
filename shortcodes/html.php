@@ -557,50 +557,6 @@ if (!function_exists('highlight_shortcode')) {
 	add_shortcode('highlight', 'highlight_shortcode');
 }
 
-// Icon
-if (!function_exists('icon_shortcode')) {
-	function icon_shortcode( $atts, $content = null, $shortcodename = '' ) {
-		extract(shortcode_atts(
-			array(
-				'icon_type'       => '',
-				'icon'            => 'alert',
-				'icon_font'       => '',
-				'icon_font_size'  => '',
-				'icon_font_color' => '',
-				'custom_class'    => '',
-				'align'           => ''
-		), $atts));
-
-		if ($icon_type == 'Images' || $icon_type == '') {
-			$icon = isset($icon_images) ? $icon_images : $icon ;
-			$icon_url = CHERRY_PLUGIN_URL . 'includes/images/iconSweets/' . strtolower($icon) . '.png' ;
-			if( defined ('CHILD_DIR') ) {
-				if(file_exists(CHILD_DIR.'/images/iconSweets/'.strtolower($icon).'.png')){
-					$icon_url = CHILD_URL.'/images/iconSweets/'.strtolower($icon).'.png';
-				}
-			}
-			$output = '<figure class="align'. $align ." ".$custom_class.'"><img src="'. $icon_url .'" alt=""></figure>';
-
-			$output = apply_filters( 'dd_shortcodes_output', $output, $atts, $shortcodename );
-
-			return $output;
-		}else{
-			$icon_font = ($icon_font != '')? strtolower($icon_font) : "icon-question";
-			$icon_font_size = ($icon_font_size != '')? $icon_font_size : "14px";
-			if(stripos($icon_font_size, "px")===false && stripos($icon_font_size, "em")===false){
-				$icon_font_size = (int) $icon_font_size . "px";
-			}
-			$icon_font_color = ($icon_font_color != '')? $icon_font_color : "#00000";
-			$output = '<figure class="align'.$align.' aligntext'.$align.' "><i class="'.$icon_font.' '.$custom_class.'" style="color:'.$icon_font_color.'; font-size:'.$icon_font_size.'; line-height:1.2em;"></i></figure>';
-
-			$output = apply_filters( 'dd_shortcodes_output', $output, $atts, $shortcodename );
-
-			return $output;
-		}
-	}
-	add_shortcode('icon', 'icon_shortcode');
-}
-
 // Template URL
 if ( !function_exists( 'template_url_shortcode' ) ) {
 
