@@ -1,7 +1,7 @@
 <?php
 // Require Extra Files and Functions
-    require_once('lessc.inc.php');
-    require_once('less-compile.php'); // Less Compiler
+//    require_once('lessc.inc.php');
+//    require_once('less-compile.php'); // Less Compiler
     require_once('cpt-init.php');
     require_once('dd-extra-widgets.php');
     require_once('aq_resizer.php'); // Aqua Resizer

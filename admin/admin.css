@@ -29,3 +29,13 @@ ul.dd_home_widget a.button {
 #editor .wp-block[data-type="advanced-bootstrap-blocks/row"], #editor .wp-block[data-type="advanced-bootstrap-blocks/container"] {
   margin: 0 auto;
 }
+
+/* Make Widgets Full Width */
+#widgets-editor .wp-block[data-type="core/widget-area"] {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#widgets-editor.blocks-widgets-container .editor-styles-wrapper {
+  max-width: 100%;
+}

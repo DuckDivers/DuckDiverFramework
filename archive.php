@@ -7,7 +7,7 @@
  * @package Duck Diver Framework 1.1
  */
 $featured_size = ( get_theme_mod( 'dd_featured_blog_image' ) ) ? get_theme_mod( 'dd_featured_blog_image' ) : 'large';
-$featured_class = ( $featured_size === 'large' ) ? 'col-12' : 'col-md-4';
+$featured_class = ( 'large' === $featured_size ) ? 'col-12' : 'col-md-4';
 $sbpos = dd_get_sidebar_position();
 get_header();
 ?>
