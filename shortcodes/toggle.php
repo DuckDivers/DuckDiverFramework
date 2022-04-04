@@ -28,8 +28,8 @@ if (!function_exists('my_display_shortcode_accordion')) {
 			$activeClass = "";
 			$collapsed = "collapsed";
 		}
-
-		$output = '<div class="card">';
+		$custom_class = ( $class ) ? ' ' . esc_attr( $class ) : '';
+		$output = '<div class="card'.$custom_class.'">';
 			$output .= '<div class="card-header '.$activeClass.'" id="heading-'.$toggleid.'" data-target="#collapse-'.$toggleid.'" data-parent="#accordion" data-toggle="collapse">';
 			$output .= '<h4 class="panel-title"><button class="btn btn-link" data-toggle="collapse" data-target="#collapse-'.$toggleid.'">'.$title.'</button></h4>';
 			$output .= '</div>';
