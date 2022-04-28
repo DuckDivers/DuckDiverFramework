@@ -61,7 +61,7 @@ wp_reset_postdata();
 								<?php if ( $i <= 1 ) : ?>
 									<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100">
 								<?php else : ?>
-									<img data-src="<?php esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100">
+									<img data-src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100">
 								<?php endif; ?>
 								<div class="carousel-caption">
 									<p><?php echo wp_kses_post( $excerpt ); ?></p>
