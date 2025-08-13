@@ -22,6 +22,9 @@ Utilizing Bootstrap 4 with an array of shortcodes for simple integration.
 
 ### Changelog
 
+== 1.3 ==
+Removal of Mobile_Detect using wp_is_mobile() instead, since it's already built in.
+
 == 1.2.22 ==
 * Make functions-strap.php pluggable
 

@@ -1,7 +1,10 @@
 /*/ Admin Custom CSS /*/
-
-#editor .wp-block {
-    max-width: 1170px;
+h1.wp-block.wp-block-post-title {
+	margin-left: 80px;
+}
+#editor .block-editor-block-list__layout {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
 #slider_caption {width: 90%; height: 200px;}
 #slider_link {max-width: 80%; width: 600px;}
@@ -38,4 +41,8 @@ ul.dd_home_widget a.button {
 }
 #widgets-editor.blocks-widgets-container .editor-styles-wrapper {
   max-width: 100%;
+}
+.plugin-title .help {
+  font-size: 13px;
+  font-style: normal;
 }

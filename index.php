@@ -1,129 +1,103 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * The template for displaying archive pages.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Duck Diver Framework 1.1
+ * @package Duck Diver Custom
  */
 
-$featured_size  = ( get_theme_mod( 'dd_featured_blog_image' ) ) ? get_theme_mod( 'dd_featured_blog_image' ) : 'large';
-$featured_class = ( $featured_size === 'large' ) ? 'col-12' : 'col-md-4';
-$sbpos          = dd_get_sidebar_position();
-
 get_header();
+
 ?>
-<div class="container" id="content-wrap">
-    <div id="primary-content" class="row">
-        <main id="single" class="single-main <?php echo $sbpos['main']; ?>" role="main">
-			<?php if ( get_theme_mod( 'dd_blog_title_h1' ) ) : ?>
-                <h1><?php echo get_theme_mod( 'dd_blog_title_h1' ); ?></h1>
-			<?php else : ?>
-                <h1><?php echo get_bloginfo() . ' Blog'; ?></h1>
-			<?php endif; ?>
-
-			<?php if ( have_posts() ) : ?>
-
-				<?php if ( is_home() && ! is_front_page() ) : ?>
-                    <header>
-                        <h1 class="page-title screen-reader-text">
-							<?php single_post_title(); ?>
-                        </h1>
-                    </header>
-				<?php endif; ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-                    <article id="post-<?php the_ID(); ?>" <?php post_class( 'post__holder' ); ?>>
-						<?php if ( ! is_singular() ) : ?>
-                        <div class="row">
-                            <div class="col-12">
-                                <header class="post-header">
-									<?php if ( is_sticky() ) : ?>
-                                        <h5 class="post-label">
-											<?php _e( "featured" ); ?>
-                                        </h5>
-									<?php endif; ?>
-                                    <h2 class="post-title"><a href="<?php the_permalink(); ?>"
-                                                              title="<?php the_title(); ?>"><?php the_title(); ?></a>
-                                    </h2>
-                                </header>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="<?php echo $featured_class; ?>">
-								<?php endif;
-								if ( has_post_thumbnail( get_the_ID() ) ) {
-									echo '<figure class="featured-thumbnail thumbnail">' . get_the_post_thumbnail() . '</figure>';
-									$post_class = ( $featured_size === 'large' ) ? 'col-12' : 'col-md-8';
-
-								} else {
-									$post_class = 'col-12';
-								}
-								?>
-                            </div>
-
-							<?php if ( ! is_singular() ) : ?>
-                                <!-- Post Content -->
-                                <div class="<?php echo $post_class; ?>">
-                                    <div class="post_content">
-                                        <div class="excerpt">
-											<?php
-
-											$excerpt_length = ( get_theme_mod( 'dd_blog_excerpt_length' ) ) ? get_theme_mod( 'dd_blog_excerpt_length' ) : 55;
-
-											if ( has_excerpt() ) {
-												the_excerpt();
-											} else {
-												$theContent = get_the_content();
-												$theContent = strip_shortcodes( $theContent );
-                        echo html_entity_decode(wp_trim_words( htmlentities( wpautop($theContent)) , $excerpt_length, '...' ));
-											}
-											?>
-                                        </div>
-										<?php $button_text = ( get_theme_mod( 'dd_read_more_text' ) ) ? get_theme_mod( 'dd_read_more_text' ) : 'Read More'; ?>
-                                        <a href="<?php the_permalink() ?>" class="btn btn-primary read-more-button">
-											<?php echo $button_text; ?>
-                                        </a>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
+	<div class="container-fluid">
+		<main id="main" class="row" role="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<?php if ( have_posts() ) : ?>
+						<header>
+							<?php if ( get_theme_mod( 'dd_blog_title_h1' ) ) : ?>
+								<h1 class="page-title blog-title mt-4 mb-3"><?php echo esc_html( get_theme_mod( 'dd_blog_title_h1' ) ); ?></h1>
 							<?php else : ?>
-                            <!-- Post Content -->
-                            <div class="post_content">
-								<?php the_content( '' ); ?>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <!-- //Post Content -->
-					<?php endif; ?>
-
-                    </article>
-
-				<?php endwhile; ?>
-
-				<?php the_posts_navigation(); ?>
-
-			<?php else : ?>
-
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; ?>
-			<?php understrap_pagination(); ?>
-
-        </main>
-        <!-- #main -->
-		<?php if ( $sbpos['showsb'] == 'true' ): ?>
-            <aside class="<?php echo $sbpos['sb']; ?>" id="sidebar">
-				<?php get_sidebar(); ?>
-            </aside>
-		<?php endif; ?>
-    </div><!-- #primary -->
-</div>
-<?php get_footer(); ?>
+								<h1><?php echo esc_html( get_bloginfo() ) . ' Blog'; ?></h1>
+							<?php endif; ?>
+						</header>
+						<!-- .page-header -->
+						<div class="row align-items-center mb-md-5" id="featured-post">
+							<?php
+							$latest_post = wp_get_recent_posts(
+								array(
+									'numberposts' => 1,
+									'post_status' => 'publish',
+								)
+							);
+							$_post_id    = $latest_post[0]['ID'];
+							?>
+							<div class="col-md-6">
+								<a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="blog-featured-image">
+									<?php
+									dd_get_default_blog_image( $_post_id );
+									?>
+								</a>
+							</div>
+							<div class="col-md-6">
+								<h2 class="text-center"><?php echo esc_attr( $latest_post[0]['post_title'] ); ?></h2>
+								<?php
+									echo wp_kses_post( dd_custom_excerpt( get_the_ID() ) );
+								?>
+								<p class="text-center mt-3"><a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="btn btn-primary d-inline-block">Read More</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w-100 py-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-12" id="infinite">
+							<div class="row">
+								<?php
+								while ( have_posts() ) :
+									the_post();
+									?>
+									<div class="col-md-4 my-3">
+										<article id="post-<?php the_ID(); ?>" <?php post_class( 'post__holder' ); ?>><a
+													href="<?php the_permalink(); ?>" class="archive-link">
+												<?php
+												dd_get_default_blog_image( get_the_ID() );
+												?>
+												<h3 class="card__title">
+													<?php the_title(); ?>
+												</h3>
+												<!-- Post Content -->
+												<div class="post_content">
+													<div class="excerpt">
+														<?php
+														echo wp_kses_post( dd_custom_excerpt( get_the_ID() ) );
+														?>
+													</div>
+												</div>
+											</a></article>
+									</div>
+								<?php endwhile; ?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php else : ?>
+					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+				<?php endif; ?>
+			</div>
+		</main>
+		<?php
+		if ( ! get_theme_mod( 'dd_use_infinite_scroll' ) ) {
+			echo '<div class="d-flex justify-content-center">';
+				understrap_pagination();
+			echo '</div>';
+		}
+		?>
+	</div>
+<?php
+do_action( 'dd_blog_footer' );
+get_footer();

@@ -14,14 +14,8 @@
 <footer id="colophon" class="site-footer col-12" role="contentinfo">
 	<div class="container">
 		<div class="row footer-widgets">
-			<div class="col-md-4" data-type="dynamic-sidebar" data-sidebar-id="footer-sidebar-1">
-				<?php dynamic_sidebar( 'footer-sidebar-1' ); ?>
-			</div>
-			<div class="col-md-4" data-type="dynamic-sidebar" data-sidebar-id="footer-sidebar-2">
-				<?php dynamic_sidebar( 'footer-sidebar-2' ); ?>
-			</div>
-			<div class="col-md-4" data-type="dynamic-sidebar" data-sidebar-id="footer-sidebar-3">
-				<?php dynamic_sidebar( 'footer-sidebar-3' ); ?>
+			<div class="col-12" data-type="dynamic-sidebar" data-sidebar-id="footer-widgets">
+				<?php dynamic_sidebar( 'footer-widget' ); ?>
 			</div>
 		</div>
 		<div id="footer-text" class="row footer-text">

@@ -99,18 +99,19 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 		/**
 		 * Starts the element output.
 		 *
+		 * @param string           $output      Used to append additional content (passed by reference).
+		 * @param WP_Nav_Menu_Item $data_object Menu item data object.
+		 * @param int              $depth       Depth of menu item. Used for padding.
+		 * @param WP_Nav_Menu_Args $args        An object of wp_nav_menu() arguments.
+		 * @param int              $id          Current item ID.
+		 *
+		 *@see Walker_Nav_Menu::start_el()
+		 *
 		 * @since WP 3.0.0
 		 * @since WP 4.4.0 The {@see 'nav_menu_item_args'} filter was added.
 		 *
-		 * @see Walker_Nav_Menu::start_el()
-		 *
-		 * @param string           $output Used to append additional content (passed by reference).
-		 * @param WP_Nav_Menu_Item $item   Menu item data object.
-		 * @param int              $depth  Depth of menu item. Used for padding.
-		 * @param WP_Nav_Menu_Args $args   An object of wp_nav_menu() arguments.
-		 * @param int              $id     Current item ID.
 		 */
-		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		public function start_el( &$output, $data_object, $depth = 0, $args = null, $id = 0 ) {
 			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 				$t = '';
 				$n = '';
@@ -126,7 +127,7 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 				$args->link_after .= '</span>';
 			}
 
-			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			$classes = empty( $data_object->classes ) ? array() : (array) $data_object->classes;
 
 			// Updating the CSS classes of a menu item in the WordPress Customizer preview results in all classes defined
 			// in that particular input box to come in as one big class string.
@@ -156,15 +157,15 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 			/**
 			 * Filters the arguments for a single nav menu item.
 			 *
-			 * @since WP 4.4.0
-			 *
 			 * @param WP_Nav_Menu_Args $args  An object of wp_nav_menu() arguments.
-			 * @param WP_Nav_Menu_Item $item  Menu item data object.
+			 * @param WP_Nav_Menu_Item $data_object  Menu item data object.
 			 * @param int              $depth Depth of menu item. Used for padding.
+			 *
+			 * @since WP 4.4.0
 			 *
 			 * @var WP_Nav_Menu_Args
 			 */
-			$args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
+			$args = apply_filters( 'nav_menu_item_args', $args, $data_object, $depth );
 
 			// Add .dropdown or .active classes where they are needed.
 			if ( $this->has_children ) {
@@ -175,11 +176,11 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 			}
 
 			// Add some additional default classes to the item.
-			$classes[] = 'menu-item-' . $item->ID;
+			$classes[] = 'menu-item-' . $data_object->ID;
 			$classes[] = 'nav-item';
 
 			// Allow filtering the classes.
-			$classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
+			$classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $data_object, $args, $depth );
 
 			// Form a string of classes in format: class="class_names".
 			$class_names = join( ' ', $classes );
@@ -188,27 +189,28 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 			/**
 			 * Filters the ID applied to a menu item's list item element.
 			 *
-			 * @since WP 3.0.1
-			 * @since WP 4.1.0 The `$depth` parameter was added.
-			 *
 			 * @param string           $menu_id The ID that is applied to the menu item's `<li>` element.
-			 * @param WP_Nav_Menu_Item $item    The current menu item.
+			 * @param WP_Nav_Menu_Item $data_object    The current menu item.
 			 * @param WP_Nav_Menu_Args $args    An object of wp_nav_menu() arguments.
 			 * @param int              $depth   Depth of menu item. Used for padding.
+			 *
+			 *@since WP 3.0.1
+			 * @since WP 4.1.0 The `$depth` parameter was added.
+			 *
 			 */
-			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
+			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $data_object->ID, $data_object, $args, $depth );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 			$output .= $indent . '<li ' . $id . $class_names . '>';
 
 			// Initialize array for holding the $atts for the link item.
 			$atts           = array();
-			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
-			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
-			if ( '_blank' === $item->target && empty( $item->xfn ) ) {
+			$atts['title']  = ! empty( $data_object->attr_title ) ? $data_object->attr_title : '';
+			$atts['target'] = ! empty( $data_object->target ) ? $data_object->target : '';
+			if ( '_blank' === $data_object->target && empty( $data_object->xfn ) ) {
 				$atts['rel'] = 'noopener noreferrer';
 			} else {
-				$atts['rel'] = ! empty( $item->xfn ) ? $item->xfn : '';
+				$atts['rel'] = ! empty( $data_object->xfn ) ? $data_object->xfn : '';
 			}
 
 			// If the item has_children add atts to <a>.
@@ -218,13 +220,13 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'false';
 				$atts['class']         = 'dropdown-toggle nav-link';
-				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
+				$atts['id']            = 'menu-item-dropdown-' . $data_object->ID;
 			} else {
 				if ( true === $this->has_schema ) {
 					$atts['itemprop'] = 'url';
 				}
 
-				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
+				$atts['href'] = ! empty( $data_object->url ) ? $data_object->url : '#';
 				// For items in dropdowns use .dropdown-item instead of .nav-link.
 				if ( $depth > 0 ) {
 					$atts['class'] = 'dropdown-item';
@@ -233,13 +235,13 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 				}
 			}
 
-			$atts['aria-current'] = $item->current ? 'page' : '';
+			$atts['aria-current'] = $data_object->current ? 'page' : '';
 
 			// Update atts of this item based on any custom linkmod classes.
 			$atts = self::update_atts_for_linkmod_type( $atts, $linkmod_classes );
 
 			// Allow filtering of the $atts array before using it.
-			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $data_object, $args, $depth );
 
 			// Build a string of html containing all the atts for the item.
 			$attributes = '';
@@ -280,19 +282,20 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 			}
 
 			/** This filter is documented in wp-includes/post-template.php */
-			$title = apply_filters( 'the_title', $item->title, $item->ID );
+			$title = apply_filters( 'the_title', $data_object->title, $data_object->ID );
 
 			/**
 			 * Filters a menu item's title.
 			 *
-			 * @since WP 4.4.0
-			 *
 			 * @param string           $title The menu item's title.
-			 * @param WP_Nav_Menu_Item $item  The current menu item.
+			 * @param WP_Nav_Menu_Item $data_object  The current menu item.
 			 * @param WP_Nav_Menu_Args $args  An object of wp_nav_menu() arguments.
 			 * @param int              $depth Depth of menu item. Used for padding.
+			 *
+			 *@since WP 4.4.0
+			 *
 			 */
-			$title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+			$title = apply_filters( 'nav_menu_item_title', $title, $data_object, $args, $depth );
 
 			// If the .sr-only class was set apply to the nav items text only.
 			if ( in_array( 'sr-only', $linkmod_classes, true ) ) {
@@ -321,7 +324,7 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) :
 			$item_output .= isset( $args->after ) ? $args->after : '';
 
 			// END appending the internal item contents to the output.
-			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $data_object, $depth, $args );
 		}
 
 		/**

@@ -15,7 +15,7 @@ get_header();
 
             <section class="error-404 not-found">
                 <header class="page-header">
-                    <h2 style="font-size: 200px">Error 404</h2>
+                    <h2 style="font-size: 4rem">Error 404</h2>
                     <h1 class="page-title">
                         <?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'dd_theme' ); ?>
                     </h1>
