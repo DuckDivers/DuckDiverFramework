@@ -66,9 +66,12 @@ if ( ! function_exists( 'dd_custom_image_sizes' ) ) {
 		add_image_size( 'slider-post-thumbnail', 2000, 600, true ); // Slider Thumbnail.
 		add_image_size( 'blog-archive-width', 600, 315, array( 'center', 'center' ) );
 		add_image_size( 'blog-hero-image', 1200, 630, array( 'center', 'center' ) );
+		add_image_size( 'mobile-slider', 500, 625, array( 'center', 'center' ) );
+		add_image_size( 'medium-square', 600, 600, array( 'center', 'center' ) );
 	}
-	add_action( 'after_setup_theme', 'dd_custom_image_sizes' );
 }
+add_action( 'after_setup_theme', 'dd_custom_image_sizes' );
+
 add_action( 'wp_enqueue_scripts', 'dd_custom_scripts' );
 /**
  * Registers and conditionally enqueues the 'magnific-popup' script.

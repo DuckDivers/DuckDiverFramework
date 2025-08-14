@@ -231,9 +231,14 @@ if ( ! function_exists( 'dd_offset_archive' ) ) {
 	 * @return void The function directly modifies the passed query object and does not return a value.
 	 */
 	function dd_offset_archive( $query ) {
+		if ( is_admin() ) {
+			return;
+		}
 		if ( $query->is_main_query() && ( $query->is_home() || $query->is_archive() ) ) {
-			$query->set( 'post_status', 'publish' );
-			$query->set( 'offset', '1' );
+			if ( 'post' === $query->get( 'post_type' ) ) {
+				$query->set( 'post_status', 'publish' );
+				$query->set( 'offset', '1' );
+			}
 		}
 	}
 }
@@ -320,4 +325,3 @@ if ( ! function_exists( 'dd_breadcrumbs' ) ) {
 		return $output;
 	}
 }
-
