@@ -46,3 +46,6 @@ ul.dd_home_widget a.button {
   font-size: 13px;
   font-style: normal;
 }
+html :where(.wp-block) {
+	max-width: 1270px;
+}

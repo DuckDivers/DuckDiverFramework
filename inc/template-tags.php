@@ -249,7 +249,8 @@ if ( ! function_exists( 'dd_breadcrumbs' ) ) {
 	 * Generates breadcrumb navigation for the given post.
 	 *
 	 * This function creates a hierarchical breadcrumb trail for a given post ID. It includes links to ancestor categories
-	 * (for posts) or parent pages (for pages), and always starts with a link to the Home page.
+	 * (for posts) or parent pages (for pages), and always starts with a link to the Home page. For custom post types,
+	 * if they have hierarchical taxonomies assigned, those taxonomy term hierarchies are included as well.
 	 *
 	 * @param int|null $post_id The ID of the post to generate breadcrumbs for. Defaults to null, in which case it uses
 	 *                          the global post object/queried object where appropriate.
@@ -264,7 +265,6 @@ if ( ! function_exists( 'dd_breadcrumbs' ) ) {
 		if ( apply_filters( 'dd_breadcrumbs_show_home', true ) ) {
 			$parts[] = '<a class="breadcrumb-home" href="' . esc_url( $home_url ) . '">' . esc_html( $home_label ) . '</a>';
 		}
-		$parts[] = '<a class="breadcrumb-home" href="' . esc_url( $home_url ) . '">' . esc_html( $home_label ) . '</a>';
 
 		// Try to resolve the context if no explicit post_id is provided.
 		if ( null === $post_id && is_singular() ) {
@@ -312,16 +312,56 @@ if ( ! function_exists( 'dd_breadcrumbs' ) ) {
 		}
 		// Page (and other singular non-post) context.
 		elseif ( $post_id && is_singular() ) {
+			// Add parent post/page ancestors for hierarchical post types.
 			$ancestors = get_post_ancestors( $post_id );
 			$ancestors = array_reverse( $ancestors );
 			foreach ( $ancestors as $ancestor_id ) {
 				$parts[] = '<a href="' . esc_url( get_permalink( $ancestor_id ) ) . '">' . esc_html( get_the_title( $ancestor_id ) ) . '</a>';
 			}
+
+			// For custom post types, include hierarchical taxonomy chain(s) if present.
+			$post_type = get_post_type( $post_id );
+			if ( $post_type && 'post' !== $post_type && 'page' !== $post_type ) {
+				$tax_objects = get_object_taxonomies( $post_type, 'objects' );
+				$best_tax   = null;
+				$best_term  = null;
+				$best_depth = -1;
+				if ( ! empty( $tax_objects ) && is_array( $tax_objects ) ) {
+					foreach ( $tax_objects as $tax_obj ) {
+						if ( empty( $tax_obj->hierarchical ) ) {
+							continue; // Only consider hierarchical taxonomies.
+						}
+						$terms = wp_get_post_terms( $post_id, $tax_obj->name );
+						if ( empty( $terms ) || is_wp_error( $terms ) ) {
+							continue;
+						}
+						foreach ( $terms as $t ) {
+							$depth = count( get_ancestors( $t->term_id, $tax_obj->name ) );
+							if ( $depth > $best_depth ) {
+								$best_depth = $depth;
+								$best_tax   = $tax_obj->name;
+								$best_term  = $t;
+							}
+						}
+					}
+				}
+				if ( $best_tax && $best_term ) {
+					$term_ancestors = get_ancestors( $best_term->term_id, $best_tax );
+					$term_ancestors = array_reverse( $term_ancestors );
+					foreach ( $term_ancestors as $ancestor_term_id ) {
+						$ancestor_term = get_term( $ancestor_term_id, $best_tax );
+						if ( $ancestor_term && ! is_wp_error( $ancestor_term ) ) {
+							$parts[] = '<a href="' . esc_url( get_term_link( (int) $ancestor_term_id, $best_tax ) ) . '">' . esc_html( $ancestor_term->name ) . '</a>';
+						}
+					}
+					$parts[] = '<a href="' . esc_url( get_term_link( (int) $best_term->term_id, $best_tax ) ) . '">' . esc_html( $best_term->name ) . '</a>';
+				}
+			}
+
 			$parts[] = '<span class="breadcrumb-current">' . esc_html( get_the_title( $post_id ) ) . '</span>';
 		}
 		// Fallback: leave only Home for other contexts (search, author, etc.).
 
-		$output = '<nav class="dd-breadcrumbs" aria-label="Breadcrumbs">' . implode( '<span class="breadcrumb-sep">' . esc_html( $separator ) . '</span>', $parts ) . '</nav>';
-		return $output;
+		return '<nav class="dd-breadcrumbs" aria-label="Breadcrumbs">' . implode( '<span class="breadcrumb-sep">' . esc_html( $separator ) . '</span>', $parts ) . '</nav>';
 	}
 }

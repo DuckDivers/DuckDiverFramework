@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying the main BLOG page.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -11,14 +11,14 @@ get_header();
 
 ?>
 	<div class="container-fluid">
-		<main id="main" class="row" role="main">
+		<main id="main" class="row blog-main" role="main">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
 						<?php if ( have_posts() ) : ?>
 						<header>
 							<?php if ( get_theme_mod( 'dd_blog_title_h1' ) ) : ?>
-								<h1 class="page-title blog-title mt-4 mb-3"><?php echo esc_html( get_theme_mod( 'dd_blog_title_h1' ) ); ?></h1>
+								<h1 class="page-title blog-title"><?php echo esc_html( get_theme_mod( 'dd_blog_title_h1' ) ); ?></h1>
 							<?php else : ?>
 								<h1><?php echo esc_html( get_bloginfo() ) . ' Blog'; ?></h1>
 							<?php endif; ?>

@@ -121,9 +121,17 @@ if ( ! function_exists( 'add_slider_to_homepage' ) ) {
 }
 add_action( 'dd_homepage_scripts', 'add_slider_to_homepage', 5 );
 
-// Add Google Rich Snippets to FAQ page
+// Add Google Rich Snippets to FAQ page.
 add_action( 'wp_head', 'add_faq_schema_markup' );
 if ( ! function_exists( 'add_faq_schema_markup' ) ) {
+	/**
+	 * Outputs FAQ schema markup as structured data in JSON-LD format if the page template is FAQ-specific.
+	 *
+	 * This function checks if the current page uses the FAQ template. If true, it queries all 'faq' post types
+	 * and generates schema markup for FAQPage with Question and Answer entities, outputting it in JSON-LD format.
+	 *
+	 * @return void
+	 */
 	function add_faq_schema_markup() {
 		global $post;
 		if ( ! $post ) {

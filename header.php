@@ -38,7 +38,7 @@ if ( ! current_user_can( 'manage_options' ) ) { // Exclude Admins from Google An
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+			gtag('js', new Date());
 			gtag('config', '<?php echo esc_html( get_theme_mod( 'theme_ga_code' ) ); ?>');
 		</script>
 		<?php

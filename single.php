@@ -12,7 +12,7 @@ $sbpos = dd_get_sidebar_position();
 get_header(); ?>
 <div class="container" id="content-wrap">
 	<div class="row">
-		<main id="single" class="single-main <?php echo esc_attr( $sbpos['main'] ); ?>" role="main">
+		<main id="main" class="single-main <?php echo esc_attr( $sbpos['main'] ); ?>" role="main">
 			<?php
 			echo '<div class="blog-breadcrumb">';
 			echo wp_kses_post( dd_breadcrumbs( get_the_ID() ) );
@@ -41,9 +41,14 @@ get_header(); ?>
                                                 <span class="screen-reader-text">' . __( 'Previous post:', 'dd-theme' ) . '</span>
                                                 ' . get_the_post_thumbnail( $previous_post->ID, 'medium' ) . '<span class="post-title">%title</span></div>';
 				}
-				the_post_navigation(
-					$post_nav_args
-				);
+				if ( $next_post || $previous_post ) {
+					echo '<div class="post-nav">';
+					echo '<div class="h3 read-more">Read More</div>';
+					the_post_navigation(
+						$post_nav_args
+					);
+					echo '</div>';
+				}
 			endwhile; // End of the loop.
 			?>
 		</main><!-- #main -->

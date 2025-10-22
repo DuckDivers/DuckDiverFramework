@@ -10,7 +10,7 @@ $sbpos = dd_get_sidebar_position();
 get_header(); ?>
 <div class="container" id="content-wrap">
 	<div class="row">
-		<main id="single" class="single-main <?php echo esc_attr( $sbpos['main'] ); ?>" role="main">
+		<main id="main" class="single-main <?php echo esc_attr( $sbpos['main'] ); ?>" role="main">
 
 			<?php if ( have_posts() ) : ?>
 

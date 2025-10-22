@@ -22,32 +22,34 @@ get_header();
 							?>
 						</header>
 						<!-- .page-header -->
-					<div class="row align-items-center mb-md-5" id="featured-post">
-						<?php
-						$latest_post = wp_get_recent_posts(
-							array(
-								'numberposts' => 1,
-								'post_status' => 'publish',
-								'category'    => get_query_var( 'cat' ),
-							)
-						);
-						$_post_id    = $latest_post[0]['ID'];
-						?>
-						<div class="col-md-6">
-							<a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="blog-featured-image">
-								<?php
-								dd_get_default_blog_image( $_post_id );
-								?>
-							</a>
-						</div>
-						<div class="col-md-6">
-							<h2 class="text-center"><?php echo esc_attr( $latest_post[0]['post_title'] ); ?></h2>
+						<?php if ( 'post' === get_post_type() ) : ?>
+						<div class="row align-items-center mb-md-5" id="featured-post">
 							<?php
-							echo wp_kses_post( dd_custom_excerpt( get_the_ID() ) );
+							$latest_post = wp_get_recent_posts(
+								array(
+									'numberposts' => 1,
+									'post_status' => 'publish',
+									'category'    => get_query_var( 'cat' ),
+								)
+							);
+							$_post_id    = $latest_post[0]['ID'];
 							?>
-							<p class="text-center mt-3"><a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="btn btn-primary d-inline-block">Read More</a></p>
+							<div class="col-md-6">
+								<a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="blog-featured-image">
+									<?php
+									dd_get_default_blog_image( $_post_id );
+									?>
+								</a>
+							</div>
+							<div class="col-md-6">
+								<h2 class="text-center"><?php echo esc_attr( $latest_post[0]['post_title'] ); ?></h2>
+								<?php
+								echo wp_kses_post( dd_custom_excerpt( get_the_ID() ) );
+								?>
+								<p class="text-center mt-3"><a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="btn btn-primary d-inline-block">Read More</a></p>
+							</div>
 						</div>
-					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
