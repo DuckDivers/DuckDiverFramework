@@ -38,13 +38,13 @@ get_header();
 								<a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="blog-featured-image">
 									<?php
 									dd_get_default_blog_image( $_post_id );
-									?>
+			 						?>
 								</a>
 							</div>
 							<div class="col-md-6">
 								<h2 class="text-center"><?php echo esc_attr( $latest_post[0]['post_title'] ); ?></h2>
 								<?php
-									echo wp_kses_post( dd_custom_excerpt( get_the_ID() ) );
+									echo wp_kses_post( dd_custom_excerpt( $_post_id ) );
 								?>
 								<p class="text-center mt-3"><a href="<?php echo esc_url( get_the_permalink( $_post_id ) ); ?>" class="btn btn-primary d-inline-block">Read More</a></p>
 							</div>

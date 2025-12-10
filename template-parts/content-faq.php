@@ -43,8 +43,8 @@
 
 					//query
 					$args      = array(
-						'post_type'       => 'faq',
-						'number_of_posts' => -1,
+						'post_type'      => 'faq',
+						'posts_per_page' => -1,
 					);
 					$faq_query = new WP_Query( $args );
 
