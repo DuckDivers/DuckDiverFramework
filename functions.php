@@ -120,9 +120,10 @@ endif;
  * Enqueue scripts and styles.
  */
 function dd_theme_scripts() {
-
-	wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/style.min.css' );
-
+	
+	if ( ! is_child_theme() ) {
+		wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/style.min.css' );
+	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

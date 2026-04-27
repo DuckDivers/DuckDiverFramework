@@ -5,21 +5,26 @@ function my_post_type_slider() {
 	register_post_type(
 		'slider',
 		array(
-			'label'               => __( 'Slides' ),
-			'singular_label'      => __( 'Slides' ),
-			'_builtin'            => false,
-			'exclude_from_search' => true, // Exclude from Search Results
-			'capability_type'     => 'page',
-			'public'              => false,
-			'show_ui'             => true,
-			'show_in_nav_menus'   => false,
-			'rewrite'             => array(
+			'label'             => __( 'Slides' ),
+			'singular_label'    => __( 'Slides' ),
+			'_builtin'          => false,
+			'labels'            => array(
+				'exclude_from_search' => true, // Exclude from Search Results.
+				'add_new'             => 'Add New Slide',
+				'add_new_item'        => __( 'Add New Slide' ),
+				'new_item'            => __( 'New Slide' ),
+			),
+			'capability_type'   => 'page',
+			'public'            => false,
+			'show_ui'           => true,
+			'show_in_nav_menus' => false,
+			'rewrite'           => array(
 				'slug'       => 'slide-view',
 				'with_front' => false,
 			),
-			'query_var'           => 'slide', // This goes to the WP_Query schema
-			'menu_icon'           => 'dashicons-slides',
-			'supports'            => array(
+			'query_var'         => 'slide', // This goes to the WP_Query schema.
+			'menu_icon'         => 'dashicons-slides',
+			'supports'          => array(
 				'title',
 				'thumbnail',
 
@@ -145,8 +150,9 @@ function my_post_type_header_image() {
 		)
 	);
 }
-add_action( 'init', 'my_post_type_header_image' );
-
+if ( ! get_theme_mod( 'dd_disable_header_image_cpt', false ) ) {
+	add_action( 'init', 'my_post_type_header_image' );
+}
 /* FAQs */
 function phi_post_type_faq() {
 	register_post_type(
@@ -185,7 +191,9 @@ function phi_post_type_faq() {
 		)
 	);
 }
-add_action( 'init', 'phi_post_type_faq' );
+if ( ! get_theme_mod( 'dd_disable_faq_cpt', false ) ) {
+	add_action( 'init', 'phi_post_type_faq' );
+}
 
 /*
 ADD Featured image to CPT
