@@ -1,0 +1,84 @@
+{
+	"apiVersion": 3,
+	"name": "dd/button",
+	"title": "Button (DD)",
+	"category": "duck-diver-framework",
+	"description": "Bootstrap button link block.",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": ".dd-button-text",
+			"default": "Button"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonStyle": {
+			"type": "string",
+			"default": "btn-primary"
+		},
+		"outline": {
+			"type": "boolean",
+			"default": false
+		},
+		"block": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonSize": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"icon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "before"
+		},
+		"blockPaddingTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingLeft": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginLeft": {
+			"type": "number",
+			"default": null
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true
+	}
+}
