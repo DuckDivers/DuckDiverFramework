@@ -76,7 +76,7 @@ $options[] = array(
 
 /*
  ---------------------------------------------------------------------------------------------------
-	Slider Options
+// Slider Options
 --------------------------------------------------------------------------------------------------- */
 
 $options[] = array(
@@ -222,6 +222,26 @@ $options[] = array(
 	'section'           => 'dd_theme_options',
 	'id'                => 'include_magnific_popup',
 	'default'           => '',
+	'option'            => 'checkbox',
+	'sanitize_callback' => '',
+	'type'              => 'control',
+);
+
+$options[] = array(
+	'title'             => __( 'Disable Header Image Post Type', 'dd_theme' ),
+	'description'       => __( 'Check box to remove Header Images from the Admin. This does not delete any existing Header Image data.' ),
+	'section'           => 'dd_theme_options',
+	'id'                => 'dd_disable_header_image_cpt',
+	'option'            => 'checkbox',
+	'sanitize_callback' => '',
+	'type'              => 'control',
+);
+
+$options[] = array(
+	'title'             => __( 'Disable FAQ Post Type', 'dd_theme' ),
+	'description'       => __( 'Check box to remove FAQs from the Admin. This does not delete any existing FAQ.' ),
+	'section'           => 'dd_theme_options',
+	'id'                => 'dd_disable_faq_cpt',
 	'option'            => 'checkbox',
 	'sanitize_callback' => '',
 	'type'              => 'control',

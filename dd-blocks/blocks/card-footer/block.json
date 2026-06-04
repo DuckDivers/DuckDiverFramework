@@ -1,0 +1,49 @@
+{
+	"apiVersion": 3,
+	"name": "dd/card-footer",
+	"title": "Card Footer",
+	"category": "duck-diver-framework",
+	"description": "Bootstrap card footer section.",
+	"parent": [
+		"dd/card"
+	],
+	"attributes": {
+		"blockPaddingTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingLeft": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginLeft": {
+			"type": "number",
+			"default": null
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true
+	}
+}

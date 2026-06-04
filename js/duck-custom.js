@@ -55,32 +55,32 @@
 
 	// WooCommerce
 	// Magnific Popup Init
-	$(
-		function() {
-			$( '.duck-lightbox, .attachment-shop_single' ).parent().addClass( 'image-popup-fit-width' );
+	if (typeof jQuery !== 'undefined' && jQuery.fn.magnificPopup) {
+		$( function () {
+				$('.duck-lightbox, .attachment-shop_single').parent().addClass('image-popup-fit-width');
 
-			$( '.image-popup-fit-width' ).magnificPopup(
-				{
-					type: 'image',
-					closeOnContentClick: true,
-					mainClass: 'mfp-fade',
-					gallery:{
-						enabled: true,
-						navigateByImgClick: true,
-						preload: [0,0]
-					},
-					image: {
-						verticalFit: false
-					},
-					zoom: {
-						enabled: true,
-						duration: 300,
+				$('.image-popup-fit-width').magnificPopup(
+					{
+						type: 'image',
+						closeOnContentClick: true,
+						mainClass: 'mfp-fade',
+						gallery: {
+							enabled: true,
+							navigateByImgClick: true,
+							preload: [0, 0]
+						},
+						image: {
+							verticalFit: false
+						},
+						zoom: {
+							enabled: true,
+							duration: 300,
+						}
 					}
-				}
-			);
-		}
-	);
-
+				);
+			}
+		);
+	}
 	// Dropdown cart in header
 	$( '.cart-holder' ).on(
 		'click',

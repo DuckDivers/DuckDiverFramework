@@ -1,0 +1,37 @@
+{
+	"apiVersion": 3,
+	"name": "dd/card-image-top",
+	"title": "Card Image Top",
+	"category": "duck-diver-framework",
+	"description": "Bootstrap card top image section.",
+	"parent": [
+		"dd/card"
+	],
+	"attributes": {
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"imageWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true
+	}
+}

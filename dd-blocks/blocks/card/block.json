@@ -1,0 +1,52 @@
+{
+	"apiVersion": 3,
+	"name": "dd/card",
+	"title": "Card",
+	"category": "duck-diver-framework",
+	"description": "Bootstrap card container for card sections.",
+	"allowedBlocks": [
+		"dd/card-image-top",
+		"dd/card-header",
+		"dd/card-body",
+		"dd/card-footer"
+	],
+	"attributes": {
+		"blockPaddingTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingLeft": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginLeft": {
+			"type": "number",
+			"default": null
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true
+	}
+}

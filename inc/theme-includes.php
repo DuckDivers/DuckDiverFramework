@@ -31,7 +31,13 @@ if ( ! function_exists( 'dd_enqueue_styles' ) ) {
 		$icons_css = ( get_theme_mod( 'exclude_fontawesome' ) ) ? '/css/duck-no-fontawesome.min.css' : '/css/duck.min.css';
 		wp_enqueue_style( 'dd-custom-fonts', get_template_directory_uri() . $icons_css, false, '1.3' );
 		if ( ! is_child_theme() ) {
-			wp_enqueue_style( 'dd-custom-style', get_template_directory_URI() . '/custom.css', array(), filemtime( get_template_directory() . '/custom.css' ), false );
+			wp_enqueue_style(
+				'dd-custom-style',
+				get_template_directory_uri() . '/custom.css',
+				array( 'dd-bootstrap' ),
+				filemtime( get_template_directory() . '/custom.css' ),
+				'all'
+			);
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'dd_enqueue_styles', 99 );

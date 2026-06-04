@@ -1,0 +1,70 @@
+{
+	"apiVersion": 3,
+	"name": "dd/wrapper",
+	"title": "Wrapper",
+	"category": "duck-diver-framework",
+	"description": "Generic semantic wrapper for grouped content.",
+	"attributes": {
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"backgroundImage": {
+			"type": "object",
+			"default": null
+		},
+		"backgroundSize": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundRepeat": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundPosition": {
+			"type": "object",
+			"default": {}
+		},
+		"backgroundAttachment": {
+			"type": "string",
+			"default": ""
+		},
+		"blockPaddingTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockPaddingLeft": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginTop": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginRight": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginBottom": {
+			"type": "number",
+			"default": null
+		},
+		"blockMarginLeft": {
+			"type": "number",
+			"default": null
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true
+	}
+}

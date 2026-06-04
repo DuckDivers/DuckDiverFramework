@@ -68,14 +68,14 @@ wp_reset_postdata();
 							<a href="<?php echo esc_url( $link ); ?>" class="carousel-item-image-link">
 								<?php if ( $i <= 1 ) : ?>
 									<picture>
-										<source media="(max-width: 767px)" srcset="<?php echo esc_url( $mobile ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100">
-										<source media="(min-width: 768px)" srcset="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100">
+										<source media="(max-width: 767px)" srcset="<?php echo esc_url( $mobile ); ?>">
+										<source media="(min-width: 768px)" srcset="<?php echo esc_url( $image ); ?>">
 										<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100">
 									</picture>
 								<?php else : ?>
 									<picture>
-										<source media="(max-width: 767px)" data-srcset="<?php echo esc_url( $mobile ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100 mobile-slider-image">
-										<source media="(min-width: 768px)" data-srcset="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100 desktop-slider-image">
+										<source media="(max-width: 767px)" data-srcset="<?php echo esc_url( $mobile ); ?>">
+										<source media="(min-width: 768px)" data-srcset="<?php echo esc_url( $image ); ?>">
 										<img data-src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="d-block w-100 desktop-slider-image">
 									</picture>
 								<?php endif; ?>
